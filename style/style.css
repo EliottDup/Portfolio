@@ -1,0 +1,42 @@
+/*color palette: https://coolors.co/449dd1-274690-38322e-f5f3f5*/
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 2%;
+  align-items: center;
+  justify-content: center;
+  background-color: #38322e;
+  color: #f5f3f5;
+}
+
+#header {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  height: 50vh;
+}
+
+.section {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  width: 85vw;
+  text-align: center;
+  border-style: solid;
+  padding: 10px;
+  margin: 20px;
+}
+
+.subsection {
+  text-align: center;
+  border-style: dashed;
+  flex-wrap: wrap;
+  padding: 10px;
+  min-width: 20vw;
+  flex: 1 1;
+}

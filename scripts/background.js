@@ -4,14 +4,16 @@ var c = /** @type {CanvasRenderingContext2D} */ (canvas.getContext("2d"));
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-mousePos = { x: -10, y: -10 };
-lastMousePos = { x: -10, y: -10 };
-mousePosSpeed = { x: 0, y: 0 };
+let mousePos = { x: -10, y: -10 };
+let lastMousePos = { x: -10, y: -10 };
+let mousePosSpeed = { x: 0, y: 0 };
 
 let points = [];
 let lines = [];
 
 let color = "blueviolet";
+
+let outerborder = 100;
 
 // Classes
 function Vector(x, y) {
@@ -312,17 +314,17 @@ function MainLoop() {
       x: pos.x + vel.x + Math.max(Math.min(velMouse.x, 1), -1),
       y: pos.y + vel.y + Math.max(Math.min(velMouse.y, 1), -1),
     };
-    if (points[i].position.x < 0) {
-      points[i].position.x = innerWidth;
+    if (points[i].position.x < -outerborder) {
+      points[i].position.x = innerWidth + outerborder;
     }
-    if (points[i].position.x > innerWidth) {
-      points[i].position.x = 0;
+    if (points[i].position.x > innerWidth + outerborder) {
+      points[i].position.x = -outerborder;
     }
-    if (points[i].position.y < 0) {
-      points[i].position.y = innerHeight;
+    if (points[i].position.y < -outerborder) {
+      points[i].position.y = innerHeight + outerborder;
     }
-    if (points[i].position.y > innerHeight) {
-      points[i].position.y = 0;
+    if (points[i].position.y > innerHeight + outerborder) {
+      points[i].position.y = -outerborder;
     }
 
     points[i].velocityFromMouse.x +=
@@ -343,8 +345,8 @@ function MainLoop() {
 
 function setup(pointCount, maxVelocity) {
   for (let i = 0; i < pointCount; i++) {
-    let xPos = randomInt(window.innerWidth);
-    let yPos = randomInt(window.innerHeight);
+    let xPos = randomInt(window.innerWidth + 2 * outerborder) - outerborder;
+    let yPos = randomInt(window.innerHeight + 2 * outerborder) - outerborder;
     let pointVel = generateRandomVector(randomFloat(maxVelocity));
 
     points.push({
@@ -354,5 +356,5 @@ function setup(pointCount, maxVelocity) {
     });
   }
 }
-setup(100, 0.05);
+setup(100, 0.1);
 MainLoop();

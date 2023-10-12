@@ -1,23 +1,82 @@
 /*color palette: https://coolors.co/449dd1-274690-38322e-201d1e-f5f3f5 */
-/* new color palette: https://coolors.co/e3cfb6-a1aab0-292b32-d0c2b1-cdd7da */
+/* new color palette: https://coolors.co/256eff-2b2d42-b1ddf1-4cb944 */
 
-/* TODO: IMAGE DOWNSCALEN!!! */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --bgCol: #2b2d42;
+  --textCol: #b1ddf1;
+  --blue: 37, 110, 255;
+  --blueTrans: #256eff40;
+  --greenish: #4cb944;
+}
+
 body {
+  background-color: var(--bgCol);
+  margin: 0;
+
+  color: var(--textCol);
+  font-family: sans-serif;
+}
+
+h1 {
+  margin: 0;
+}
+
+.page {
+  margin-top: 25px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  padding: 20px;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  background-color: #cdd7da;
+  padding: 28px;
+  gap: 30px;
+}
 
-  color: #292b32;
-  font-family: sans-serif;
+#navbar {
+  background-color: rgba(var(--blue), 0.75);
+
+  display: flex;
+  justify-content: space-evenly;
+
+  position: fixed;
+  top: 0;
+
+  width: 100%;
+  height: 40px;
+
+  border-bottom: 3px solid var(--textCol);
+
+  font-size: x-large;
+}
+
+#link {
+  text-shadow: 0 5px 7px var(--bgCol);
+  color: var(--textCol);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid var(--textCol);
+
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+
+#link:hover {
+  color: var(--greenish);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 #header {
   width: 100%;
-  /* max-height: 50vh; */
   text-align: left;
   align-items: center;
   display: flex;
@@ -37,8 +96,9 @@ body {
   justify-content: center;
   align-items: center;
   width: auto;
-  height: 100%;
-  box-shadow: inset 0 0 10px 20px #cdd7da;
+  max-height: 100%;
+  box-shadow: inset 0 0 10px 20px var(--bgCol);
+  border: 2px solid var(--bgCol);
 }
 
 #titleImg {
@@ -46,6 +106,7 @@ body {
   border-radius: 50px;
 
   max-width: 100%;
+  min-width: 5vw;
   object-fit: contain;
   z-index: -2;
 }
@@ -55,35 +116,84 @@ body {
   flex-direction: column;
   gap: 10px;
 
-  /* width: 85vw; */
   text-align: center;
+  align-items: center;
   border-style: solid;
-  border-width: 1px;
+  border-width: 2px;
+  border-color: var(--textCol);
+  background-color: var(--blueTrans);
   padding: 10px;
-  /* margin: 20px; */
-  font-size: x-large;
+  width: 100%;
+  font-size: large;
 }
 
-.section > h1 {
-  margin: 0;
+.section > a {
+  padding: 10px;
+  width: fit-content;
+
+  text-decoration: none;
+  color: var(--textCol);
+}
+
+.secLink:hover {
+  color: var(--greenish);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .section > p {
   margin: 0;
 }
 
-.subsection {
+.sectionInfo {
+  gap: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.infoBtn {
+  font-size: xx-large;
+
+  width: 75%;
+  min-width: fit-content;
+  max-width: fit-content;
+  height: fit-content;
+
+  padding: 20px 10px 20px 10px;
+
+  border-radius: 20px;
+  border: 2px solid black;
+
+  background-color: #274690;
+  background: linear-gradient(to bottom, #449dd1 0%, #274690 150%);
+  box-shadow: 0px 5px 5px black;
+}
+
+.infoBtn:hover {
+  background: linear-gradient(to bottom, #274690 0%, #449dd1 150%);
+}
+
+.infoBtn:active {
+  position: relative;
+  top: 2px;
+  box-shadow: inset 0px 5px 5px black;
+}
+
+.previews {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-evenly;
   gap: 10px;
+  height: fit-content;
 }
 
-.subsection > div {
-  text-align: center;
+.preview {
+  text-align: left;
   border-width: 2px;
   border-style: dashed;
+  border-color: var(--textCol);
   padding: 10px;
 
   flex: 1;
@@ -91,11 +201,49 @@ body {
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 1000px) {
-  .subsection {
+.previewImg {
+  float: left;
+  width: 50%;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+.artImg {
+  width: 100%;
+}
+
+.contacts {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.contactLink {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.contactLink > p {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.contactLink > img {
+  width: 40%;
+}
+
+@media screen and (max-width: 800px) {
+  #header {
     flex-direction: column;
   }
-  #header {
+
+  .previews {
+    flex-direction: column;
+  }
+
+  .preview {
+    height: 200%;
+  }
+  .sectionInfo {
     flex-direction: column;
   }
 }

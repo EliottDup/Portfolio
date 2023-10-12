@@ -89,12 +89,12 @@ async function start() {
   await scrambler(name, nameElement, "", 40, 1 / 2);
   await sleep(300);
   await type(row2, abtElement, ">", "", 30);
-  await sleep(10000);
+  await sleep(1000);
   await type(
-    " What are you waiting for? :Go check out my work! ",
+    "{V} What are you waiting for? :Go check out my work! {V}",
     goDown,
-    '> <span class="purple">V</span>',
-    '<span class="purple">V</span>',
+    "> ",
+    "",
     25,
     500
   );

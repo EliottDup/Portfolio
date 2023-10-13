@@ -339,8 +339,14 @@ function MainLoop() {
         100) *
       0;
 
-    points[i].velocityFromMouse.x *= 0.95;
-    points[i].velocityFromMouse.y *= 0.95;
+    points[i].velocityFromMouse.y *= 0.99;
+    points[i].velocityFromMouse.x *= 0.99;
+    if (
+      points[i].velocityFromMouse.x < 0.01 &&
+      points[i].velocityFromMouse.y < 0.01
+    ) {
+      points[i].velocityFromMouse = Vector(0, 0);
+    }
   }
 }
 function setup(pointCount, maxVelocity) {
@@ -352,7 +358,7 @@ function setup(pointCount, maxVelocity) {
     points.push({
       position: { x: xPos, y: yPos },
       velocity: pointVel,
-      velocityFromMouse: { x: pointVel.x * 10, y: pointVel.y * 10 },
+      velocityFromMouse: { x: pointVel.x * 5, y: pointVel.y * 5 },
     });
   }
 }

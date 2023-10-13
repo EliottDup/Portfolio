@@ -1,9 +1,6 @@
 var canvas = document.getElementById("canvas");
 var c = /** @type {CanvasRenderingContext2D} */ (canvas.getContext("2d"));
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
 let mousePos = { x: -10, y: -10 };
 let lastMousePos = { x: -10, y: -10 };
 let mousePosSpeed = { x: 0, y: 0 };
@@ -285,6 +282,8 @@ window.addEventListener("mousemove", (e) => {
 });
 
 function MainLoop() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
   requestAnimationFrame(MainLoop);
   //clear frame
   c.clearRect(0, 0, innerWidth, innerHeight);
@@ -340,11 +339,10 @@ function MainLoop() {
         100) *
       0;
 
-    points[i].velocityFromMouse.x *= 0.99;
-    points[i].velocityFromMouse.y *= 0.99;
+    points[i].velocityFromMouse.x *= 0.95;
+    points[i].velocityFromMouse.y *= 0.95;
   }
 }
-
 function setup(pointCount, maxVelocity) {
   for (let i = 0; i < pointCount; i++) {
     let xPos = randomInt(window.innerWidth + 2 * outerborder) - outerborder;
@@ -358,5 +356,5 @@ function setup(pointCount, maxVelocity) {
     });
   }
 }
-setup(100, 0.1);
+setup(100, 0.4);
 MainLoop();

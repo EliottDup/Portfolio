@@ -93,7 +93,7 @@ async function start() {
   await type(
     " What are you waiting for? :Go check out my work! ",
     goDown,
-    '> <span class="purple">V</span>',
+    '<span class="purple">V</span>',
     '<span class="purple">V</span>',
     25,
     500

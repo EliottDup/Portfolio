@@ -24,8 +24,9 @@ canvas {
 #start {
   width: 100%;
   height: 105%;
-  display: flex;
-  align-items: center;
+  /* display: flex;
+  align-items: center; */
+  /* flex-direction: column;   */
 }
 
 .purple {
@@ -39,7 +40,7 @@ canvas {
 }
 
 #row3 {
-  size: 10pt;
+  margin-left: 3.75%;
 }
 
 #title {

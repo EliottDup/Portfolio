@@ -179,9 +179,11 @@ function BowyerWatson(pointsList) {
     Vector(4 * innerWidth, -innerHeight),
     Vector(-innerWidth, 4 * innerHeight)
   );
+
   // add super triangle
   triangulation = [];
   triangulation.push(supertri);
+
   for (let i = 0; i < pointsList.length; i++) {
     //for each point
     let pos = pointsList[i].position;
@@ -272,7 +274,7 @@ function displacestuffmultipletimes(pointslist) {
   return newList.concat(l1).concat(l2).concat(l3).concat(l4);
 }
 
-canvas.addEventListener("mousemove", (e) => {
+window.addEventListener("mousemove", (e) => {
   let xPos = e.clientX;
   let yPos = e.clientY;
   if (mousePos.x != -10) {
@@ -352,7 +354,7 @@ function setup(pointCount, maxVelocity) {
     points.push({
       position: { x: xPos, y: yPos },
       velocity: pointVel,
-      velocityFromMouse: { x: 0, y: 0 },
+      velocityFromMouse: { x: pointVel.x * 10, y: pointVel.y * 10 },
     });
   }
 }

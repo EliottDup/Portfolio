@@ -65,7 +65,7 @@ async function type(
     let innerHTML = wordTotype
       .slice(0, i)
       .replace(/:/g, "")
-      .replace(/{/g, '<span class="purple">')
+      .replace(/{/g, '<span class="highlight">')
       .replace(/}/g, "</span>");
 
     htmlthing.innerHTML = prefix + innerHTML;
@@ -79,7 +79,7 @@ async function type(
     prefix +
     wordTotype
       .replace(/:/g, "")
-      .replace(/{/g, '<span class="purple">')
+      .replace(/{/g, '<span class="highlight">')
       .replace(/}/g, "</span>") +
     suffix;
   return;
@@ -91,10 +91,10 @@ async function start() {
   await type(row2, abtElement, ">", "", 30);
   await sleep(1000);
   await type(
-    "{V} What are you waiting for? :Go check out my work! {V}",
+    " What are you waiting for? :Go check out my work! ",
     goDown,
-    "> ",
-    "",
+    '> <span class="purple">V</span>',
+    '<span class="purple">V</span>',
     25,
     500
   );

@@ -1,8 +1,8 @@
 var canvas = document.getElementById("canvas");
 var c = /** @type {CanvasRenderingContext2D} */ (canvas.getContext("2d"));
 
-let mousePos = { x: -10, y: -10 };
-let lastMousePos = { x: -10, y: -10 };
+let mousePos = { x: -1000, y: -1000 };
+let lastMousePos = { x: -1000, y: -1000 };
 let mousePosSpeed = { x: 0, y: 0 };
 
 let points = [];
@@ -98,6 +98,12 @@ function edgeIsInList(edge, list) {
 
 function edgeIsOnScreen(edge) {
   return pointIsOnScreen(edge.v1) || pointIsOnScreen(edge.v2);
+}
+
+function getEdgeCenter(e) {
+  let x = (e.v1.x + e.v2.x) / 2;
+  let y = (e.v1.y + e.v2.y) / 2;
+  return Vector(x, y);
 }
 
 // random generators
@@ -244,7 +250,7 @@ function BowyerWatson(pointsList) {
 
 function calculateMouseFalloffMult(pointpos, mousepos, range) {
   dist = distance(pointpos, mousepos);
-  return 1 - smoothstep(0, range, dist);
+  return smoothstep(range, 0, dist);
 }
 
 function smoothstep(min, max, value) {
@@ -288,7 +294,7 @@ function MainLoop() {
   //clear frame
   c.clearRect(0, 0, innerWidth, innerHeight);
 
-  if (lastMousePos.x != -10) {
+  if (lastMousePos.x != -1000) {
     mousePosSpeed.x = mousePos.x - lastMousePos.x;
     mousePosSpeed.y = mousePos.y - lastMousePos.y;
   }
@@ -298,17 +304,22 @@ function MainLoop() {
   lines = Tris2lines(tris);
 
   for (let i = 0; i < lines.length; i++) {
-    drawLine(lines[i].v1, lines[i].v2, color, 2, 0.5);
+    let size =
+      calculateMouseFalloffMult(getEdgeCenter(lines[i]), mousePos, 300) * 3 + 1;
+
+    drawLine(lines[i].v1, lines[i].v2, color, size, 0.5);
   }
 
-  drawDot(mousePos, 6, color, 0.5);
+  drawDot(mousePos, 6, color, 0.75);
 
   for (let i = 0; i < points.length; i++) {
     let pos = points[i].position;
     let vel = points[i].velocity;
     let velMouse = points[i].velocityFromMouse;
     //draw Dots
-    drawDot(pos, 5, color, 0.5);
+    let size = calculateMouseFalloffMult(pos, mousePos, 300) * 4 + 2;
+    // drawDot(pos, size, color, 1);
+    drawDot(pos, size, color, 0.75);
 
     //update Dots position
     points[i].position = {
@@ -353,7 +364,7 @@ function setup(pointCount, maxVelocity) {
   for (let i = 0; i < pointCount; i++) {
     let xPos = randomInt(window.innerWidth + 2 * outerborder) - outerborder;
     let yPos = randomInt(window.innerHeight + 2 * outerborder) - outerborder;
-    let pointVel = generateRandomVector(randomFloat(maxVelocity));
+    let pointVel = generateRandomVector(randomFloat(maxVelocity * 1));
 
     points.push({
       position: { x: xPos, y: yPos },

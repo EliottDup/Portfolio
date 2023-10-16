@@ -47,3 +47,27 @@ canvas {
   margin-left: 10vw;
   transform: translateY(calc(40vh - 50%));
 }
+
+#about {
+  padding-top: 10vh;
+  width: 100vw;
+  height: 100vh;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 10vh;
+}
+
+.paragraph {
+  margin-left: 10vw;
+  margin-right: 10vw;
+}
+
+#contact {
+  width: 100vw;
+  padding: 2vh;
+  background-color: rgba(15, 0, 20, 0.75);
+  border-radius: 10px 10px 0 0;
+  text-align: center;
+}

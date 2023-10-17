@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Chivo+Mono&display=swap");
 
+::selection {
+  background-color: rgba(138, 43, 226, 0.5);
+}
+
+span::selection {
+  text-decoration: underline rgba(255, 250, 240, 1) 0.1em;
+}
+
 body::-webkit-scrollbar {
   display: none;
 }
@@ -35,6 +43,8 @@ canvas {
   color: blueviolet;
   background-color: hsl(271, 76%, 6%);
   border-radius: 10px;
+  /* padding-left: 0.5ex;
+  padding-right: 0.5ex; */
 }
 
 #row3 {
@@ -48,18 +58,9 @@ canvas {
   transform: translateY(calc(40vh - 50%));
 }
 
-#about {
-  /* padding-top: 10vh; */
-}
-
 .title {
   text-align: center;
   margin-bottom: 10vh;
-}
-
-.paragraph {
-  /* margin-left: 10vw; */
-  /* margin-right: 10vw; */
 }
 
 #contact {

@@ -288,7 +288,7 @@ function displacestuffmultipletimes(pointslist) {
 window.addEventListener("mousemove", (e) => {
   let xPos = e.clientX;
   let yPos = e.clientY;
-  if (mousePos.x != -10) {
+  if (mousePos.x != -1000) {
     mousePosSpeed.x = xPos - mousePos.x;
     mousePosSpeed.y = yPos - mousePos.y;
   }

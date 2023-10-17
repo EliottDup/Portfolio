@@ -1,29 +1,33 @@
+//animations
 let title = document.getElementById("title");
 let nameElement = document.getElementById("name");
 let abtElement = document.getElementById("row2");
 let goDown = document.getElementById("row3");
 
+//age
+let age = document.getElementsByClassName("age");
+
 let chars = "!<>-_\\/[]{}—=+*^?#______";
 let name = "Eliott Duparc";
-let row2 = " My main hobbies are {Programming}, {Gaming} and {Freerunning}";
+let row2 = " My main hobbies are {Programming}, {Gaming} and {Freerunning}.";
 
-function sleep(ms) {
+function Sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-function getRandomInt(max) {
+function GetRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
-function getRandomString(length) {
+function GetRandomString(length) {
   let str = "";
   for (let i = 0; i < length; i++) {
-    str += chars[getRandomInt(chars.length)];
+    str += chars[GetRandomInt(chars.length)];
   }
   return str;
 }
 
-async function scrambler(
+async function Scrambler(
   wordToScramble,
   htmlthing,
   prefix = "",
@@ -31,10 +35,10 @@ async function scrambler(
   shufflespeed = 1 / 3
 ) {
   htmlthing.innerHTML = prefix;
-  await sleep(speed);
+  await Sleep(speed);
   for (let i = 0; i < wordToScramble.length + 1; i += shufflespeed) {
     let innerHTML =
-      wordToScramble.slice(0, i) + getRandomString(wordToScramble.length - i);
+      wordToScramble.slice(0, i) + GetRandomString(wordToScramble.length - i);
 
     for (let j = 0; j < wordToScramble.length; j++) {
       if (wordToScramble[j] == " ") {
@@ -46,13 +50,13 @@ async function scrambler(
     if (innerHTML == wordToScramble) {
       return;
     }
-    await sleep(speed);
+    await Sleep(speed);
   }
   htmlthing.innerHTML = prefix + wordToScramble;
   return;
 }
 
-async function type(
+async function Type(
   wordTotype,
   htmlthing,
   prefix = "",
@@ -70,9 +74,9 @@ async function type(
 
     htmlthing.innerHTML = prefix + innerHTML;
     if (wordTotype[i] == ":") {
-      await sleep(spaceDelay);
+      await Sleep(spaceDelay);
     }
-    await sleep(speed);
+    await Sleep(speed);
   }
 
   htmlthing.innerHTML =
@@ -85,12 +89,12 @@ async function type(
   return;
 }
 
-async function start() {
-  await scrambler(name, nameElement, "", 40, 1 / 2);
-  await sleep(300);
-  await type(row2, abtElement, ">", "", 30);
-  await sleep(1000);
-  await type(
+async function StartAnimation() {
+  await Scrambler(name, nameElement, "", 40, 1 / 2);
+  await Sleep(300);
+  await Type(row2, abtElement, ">", "", 30);
+  await Sleep(1000);
+  await Type(
     " What are you waiting for? :Go check out my work! ",
     goDown,
     '<span class="purple">V</span>',
@@ -100,4 +104,18 @@ async function start() {
   );
 }
 
-start();
+function UpdateAge() {
+  var today = new Date();
+  var birthDate = new Date("2006/06/07");
+  var myAge = today.getFullYear() - birthDate.getFullYear();
+  var m = today.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    myAge--;
+  }
+  for (let i = 0; i < age.length; i++) {
+    age[i].innerHTML = myAge;
+  }
+}
+
+StartAnimation();
+UpdateAge();

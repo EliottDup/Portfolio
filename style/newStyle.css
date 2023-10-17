@@ -49,9 +49,7 @@ canvas {
 }
 
 #about {
-  padding-top: 10vh;
-  width: 100vw;
-  height: 100vh;
+  /* padding-top: 10vh; */
 }
 
 .title {
@@ -60,8 +58,8 @@ canvas {
 }
 
 .paragraph {
-  margin-left: 10vw;
-  margin-right: 10vw;
+  /* margin-left: 10vw; */
+  /* margin-right: 10vw; */
 }
 
 #contact {
@@ -70,4 +68,14 @@ canvas {
   background-color: rgba(15, 0, 20, 0.75);
   border-radius: 10px 10px 0 0;
   text-align: center;
+}
+
+.article {
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-top: 10vh;
+  width: 80vw;
+  padding: 2vh;
+  border-radius: 15px;
+  background-color: hsla(271, 76%, 30%, 0.25);
 }

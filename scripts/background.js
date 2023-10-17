@@ -151,6 +151,14 @@ function drawTriangle(tri, color, width) {
   drawLine(tri.v3, tri.v1, color, width);
 }
 
+function drawAllDots(dots, col) {
+  for (let i = 0; i < dots.length; i++) {
+    let pos = dots[i].position;
+    let size = calculateMouseFalloffMult(pos, dots[0].position, 300) * 4 + 2;
+    drawDot(pos, size, col, 0.75);
+  }
+}
+
 // Mathy stuff
 function getCircumcenter(tri) {
   let A = tri.v1;
@@ -294,15 +302,18 @@ function MainLoop() {
   //clear frame
   c.clearRect(0, 0, innerWidth, innerHeight);
 
+  //update mouse
   if (lastMousePos.x != -1000) {
     mousePosSpeed.x = mousePos.x - lastMousePos.x;
     mousePosSpeed.y = mousePos.y - lastMousePos.y;
   }
   lastMousePos = mousePos;
 
+  //calculate delauney
   let tris = BowyerWatson(points.concat({ position: mousePos }));
   lines = Tris2lines(tris);
 
+  //drawLines
   for (let i = 0; i < lines.length; i++) {
     let size =
       calculateMouseFalloffMult(getEdgeCenter(lines[i]), mousePos, 300) * 3 + 1;
@@ -310,16 +321,16 @@ function MainLoop() {
     drawLine(lines[i].v1, lines[i].v2, color, size, 0.5);
   }
 
-  drawDot(mousePos, 6, color, 0.75);
+  //drawDots
+  drawAllDots([{ position: mousePos }].concat(points), "black");
+
+  drawAllDots([{ position: mousePos }].concat(points), color);
+  // drawDot(mousePos, 6, color, 0.75);
 
   for (let i = 0; i < points.length; i++) {
     let pos = points[i].position;
     let vel = points[i].velocity;
     let velMouse = points[i].velocityFromMouse;
-    //draw Dots
-    let size = calculateMouseFalloffMult(pos, mousePos, 300) * 4 + 2;
-    // drawDot(pos, size, color, 1);
-    drawDot(pos, size, color, 0.75);
 
     //update Dots position
     points[i].position = {

@@ -9,7 +9,7 @@ let age = document.getElementsByClassName("age");
 
 let chars = "!<>-_\\/[]{}—=+*^?#______";
 let name = "Eliott Duparc";
-let row2 = " My main hobbies are {Programming}, {Gaming} and {Freerunning}.";
+let row2 = " My main hobbies are {Programming}, {Gaming} and {Freerunning}";
 
 function Sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));

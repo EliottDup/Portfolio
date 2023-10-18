@@ -364,8 +364,8 @@ function MainLoop() {
         100) *
       0;
 
-    points[i].velocityFromMouse.y *= 0.99;
-    points[i].velocityFromMouse.x *= 0.99;
+    points[i].velocityFromMouse.y *= 0.98;
+    points[i].velocityFromMouse.x *= 0.98;
     if (
       points[i].velocityFromMouse.x < 0.01 &&
       points[i].velocityFromMouse.y < 0.01

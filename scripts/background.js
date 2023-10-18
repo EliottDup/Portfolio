@@ -12,7 +12,10 @@ let color = "blueviolet";
 
 let outerborder = 100;
 
-// Classes
+let screensizeMult = window.innerWidth / 1080;
+console.log(screensizeMult);
+
+//Classes 'n funcs
 function Vector(x, y) {
   return { x: x, y: y };
 }
@@ -371,11 +374,14 @@ function MainLoop() {
     }
   }
 }
+
 function setup(pointCount, maxVelocity) {
   for (let i = 0; i < pointCount; i++) {
     let xPos = randomInt(window.innerWidth + 2 * outerborder) - outerborder;
     let yPos = randomInt(window.innerHeight + 2 * outerborder) - outerborder;
-    let pointVel = generateRandomVector(randomFloat(maxVelocity * 1));
+    let pointVel = generateRandomVector(
+      randomFloat(maxVelocity * screensizeMult)
+    );
 
     points.push({
       position: { x: xPos, y: yPos },
@@ -384,5 +390,6 @@ function setup(pointCount, maxVelocity) {
     });
   }
 }
+
 setup(100, 0.4);
 MainLoop();

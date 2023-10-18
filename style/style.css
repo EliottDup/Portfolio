@@ -65,11 +65,45 @@ canvas {
 
 #contact {
   width: 100vw;
-  padding: 2vh;
+  padding: 2vh 0 2vh 0;
   background-color: rgba(15, 0, 20, 0.75);
   border-radius: 10px 10px 0 0;
   text-align: center;
   margin-top: 10vh;
+}
+
+#contactlinks {
+  margin-top: 2vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 4vw;
+  row-gap: 2vh;
+}
+
+.contactlink {
+  width: 3vw;
+  text-decoration: inherit;
+  color: inherit;
+  font-size: smaller;
+}
+
+.contactlink > img {
+  width: 100%;
+  margin-bottom: 1vh;
+}
+.contactlink > p {
+  font-size: 4vw;
+  margin-top: 0;
+  margin-bottom: 1vh;
+}
+
+#version {
+  text-align: center;
+  background-color: black;
+  color: darkgrey;
+  font-size: 0.75em;
 }
 
 .article {
@@ -80,4 +114,9 @@ canvas {
   padding: 2vh;
   border-radius: 15px;
   background-color: hsla(271, 76%, 30%, 0.25);
+}
+
+.paragraph {
+  margin: 0;
+  color: #fffaf0;
 }

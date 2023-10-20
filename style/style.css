@@ -94,17 +94,13 @@ canvas {
   width: 100%;
   margin-bottom: 1vh;
 }
-.contactlink > p {
-  font-size: 4vw;
-  margin-top: 0;
-  margin-bottom: 1vh;
-}
 
 #version {
-  text-align: center;
+  text-align: right;
   background-color: black;
   color: darkgrey;
   font-size: 0.75em;
+  padding-right: 1vw;
 }
 
 .article {

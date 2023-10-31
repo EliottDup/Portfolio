@@ -84,10 +84,15 @@ canvas {
 }
 
 .contactlink {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
   width: 3vw;
   text-decoration: inherit;
   color: inherit;
   font-size: smaller;
+  text-align: center;
 }
 
 .contactlink > img {

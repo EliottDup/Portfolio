@@ -4,7 +4,7 @@
   background-color: rgba(138, 43, 226, 0.5);
 }
 
-span::selection {
+.highlight::selection {
   text-decoration: underline rgba(255, 250, 240, 1) 0.1em;
 }
 
@@ -126,7 +126,7 @@ canvas {
 }
 
 .paragraph {
-  margin: 0;
+  margin-top: 3%;
   color: #fffaf0;
 }
 
@@ -141,7 +141,6 @@ canvas {
   gap: 3%;
 }
 .project > a {
-  margin-bottom: 5%;
   cursor: default;
 }
 
@@ -178,4 +177,16 @@ canvas {
 }
 .projInfo > a::selection {
   text-decoration: underline rgba(255, 250, 240, 1) 0.1em;
+}
+
+.projectTitle {
+  display: flex;
+  justify-content: center;
+}
+
+.projectTitle > h1 {
+  width: fit-content;
+  padding-left: 0.5ex;
+  padding-right: 0.5ex;
+  margin-top: 0;
 }

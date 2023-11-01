@@ -12,7 +12,8 @@ let color = "blueviolet";
 
 let outerborder = 100;
 
-let screensizeMult = window.innerWidth / 1080;
+// let screensizeMult = window.innerWidth / 1080;
+let screensizeMult = 1;
 
 let voronoi = false;
 if (canvas.innerHTML == "voronoi") voronoi = true;

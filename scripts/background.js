@@ -15,6 +15,8 @@ let outerborder = 100;
 let screensizeMult = window.innerWidth / 1080;
 console.log(screensizeMult);
 
+let voronoi = false;
+
 //Classes 'n funcs
 function Vector(x, y) {
   return { x: x, y: y };
@@ -83,6 +85,23 @@ function Tris2lines(tris) {
   return lines;
 }
 
+function getVoronoiLines(tris, centers) {
+  let edges = [];
+
+  for (let i = 0; i < tris.length; i++) {
+    let neighbors = getTriNeighbors(i, tris);
+
+    for (let j = 0; j < neighbors.length; j++) {
+      edges.push({
+        v1: centers[i].position,
+        v2: centers[neighbors[j]].position,
+      });
+    }
+  }
+
+  return edges;
+}
+
 function compareEdge(e1, e2) {
   return (
     (compareVector(e1.v1, e2.v1) && compareVector(e1.v2, e2.v2)) ||
@@ -107,6 +126,36 @@ function getEdgeCenter(e) {
   let x = (e.v1.x + e.v2.x) / 2;
   let y = (e.v1.y + e.v2.y) / 2;
   return Vector(x, y);
+}
+
+function trisShareEdge(tri1, tri2) {
+  let edges1 = getTriEdges(tri1);
+  let edges2 = getTriEdges(tri2);
+  if (edgeIsInList(edges1[0], edges2)) return true;
+  if (edgeIsInList(edges1[1], edges2)) return true;
+  if (edgeIsInList(edges1[2], edges2)) return true;
+  return false;
+}
+
+function getTriNeighbors(index, tris) {
+  let result = [];
+  tri = tris[index];
+  triEdges = getTriEdges(tri);
+
+  for (let i = 0; i < tris.length; i++) {
+    if (!compareTriangle(tri, tris[i])) {
+      if (trisShareEdge(tri, tris[i])) result.push(i);
+    }
+  }
+  return result;
+}
+
+function getCircumcenters(tris) {
+  let result = [];
+  for (let i = 0; i < tris.length; i++) {
+    result.push({ position: getCircumcenter(tris[i]) });
+  }
+  return result;
 }
 
 // random generators
@@ -154,10 +203,10 @@ function drawTriangle(tri, color, width) {
   drawLine(tri.v3, tri.v1, color, width);
 }
 
-function drawAllDots(dots, col) {
+function drawAllDots(dots, col, mousePosition) {
   for (let i = 0; i < dots.length; i++) {
     let pos = dots[i].position;
-    let size = calculateMouseFalloffMult(pos, dots[0].position, 300) * 4 + 2;
+    let size = calculateMouseFalloffMult(pos, mousePosition, 300) * 4 + 2;
     drawDot(pos, size, col, 0.75);
   }
 }
@@ -313,8 +362,18 @@ function MainLoop() {
   lastMousePos = mousePos;
 
   //calculate delauney
+  let lines;
+  let pointsToDraw;
   let tris = BowyerWatson(points.concat({ position: mousePos }));
-  lines = Tris2lines(tris);
+  if (voronoi) {
+    let centers = getCircumcenters(tris);
+    lines = getVoronoiLines(tris, centers);
+    pointsToDraw = centers;
+  } else {
+    lines = Tris2lines(tris);
+    pointsToDraw = points;
+  }
+  console.log(lines[0]);
 
   //drawLines
   for (let i = 0; i < lines.length; i++) {
@@ -325,20 +384,28 @@ function MainLoop() {
   }
 
   //drawDots
-  drawAllDots([{ position: mousePos }].concat(points), "black");
+  if (voronoi) {
+    drawAllDots(pointsToDraw, "black", mousePos);
+    drawAllDots(pointsToDraw, color, mousePos);
+  } else {
+    drawAllDots(
+      [{ position: mousePos }].concat(pointsToDraw),
+      "black",
+      mousePos
+    );
+    drawAllDots([{ position: mousePos }].concat(pointsToDraw), color, mousePos);
+  }
 
-  drawAllDots([{ position: mousePos }].concat(points), color);
   // drawDot(mousePos, 6, color, 0.75);
-
   for (let i = 0; i < points.length; i++) {
     let pos = points[i].position;
     let vel = points[i].velocity;
-    let velMouse = points[i].velocityFromMouse;
+    let extraV = points[i].extraStartVelocity;
 
     //update Dots position
     points[i].position = {
-      x: pos.x + vel.x + Math.max(Math.min(velMouse.x, 1), -1),
-      y: pos.y + vel.y + Math.max(Math.min(velMouse.y, 1), -1),
+      x: pos.x + vel.x + Math.max(Math.min(extraV.x, 1), -1),
+      y: pos.y + vel.y + Math.max(Math.min(extraV.y, 1), -1),
     };
     if (points[i].position.x < -outerborder) {
       points[i].position.x = innerWidth + outerborder;
@@ -353,24 +420,24 @@ function MainLoop() {
       points[i].position.y = -outerborder;
     }
 
-    points[i].velocityFromMouse.x +=
+    points[i].extraStartVelocity.x +=
       ((mousePosSpeed.x *
         calculateMouseFalloffMult(points[i].position, mousePos, 100)) /
         100) *
       0;
-    points[i].velocityFromMouse.y +=
+    points[i].extraStartVelocity.y +=
       ((mousePosSpeed.y *
         calculateMouseFalloffMult(points[i].position, mousePos, 100)) /
         100) *
       0;
 
-    points[i].velocityFromMouse.y *= 0.98;
-    points[i].velocityFromMouse.x *= 0.98;
+    points[i].extraStartVelocity.y *= 0.98;
+    points[i].extraStartVelocity.x *= 0.98;
     if (
-      points[i].velocityFromMouse.x < 0.01 &&
-      points[i].velocityFromMouse.y < 0.01
+      points[i].extraStartVelocity.x < 0.01 &&
+      points[i].extraStartVelocity.y < 0.01
     ) {
-      points[i].velocityFromMouse = Vector(0, 0);
+      points[i].extraStartVelocity = Vector(0, 0);
     }
   }
 }
@@ -386,7 +453,7 @@ function setup(pointCount, maxVelocity) {
     points.push({
       position: { x: xPos, y: yPos },
       velocity: pointVel,
-      velocityFromMouse: { x: pointVel.x * 5, y: pointVel.y * 5 },
+      extraStartVelocity: { x: pointVel.x * 5, y: pointVel.y * 5 },
     });
   }
 }

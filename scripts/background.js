@@ -13,9 +13,10 @@ let color = "blueviolet";
 let outerborder = 100;
 
 let screensizeMult = window.innerWidth / 1080;
-console.log(screensizeMult);
 
-let voronoi = true;
+let voronoi = false;
+if (canvas.innerHTML == "voronoi") voronoi = true;
+canvas.innerHTML = "";
 
 //Classes 'n funcs
 function Vector(x, y) {
@@ -360,8 +361,7 @@ function MainLoop() {
     mousePosSpeed.y = mousePos.y - lastMousePos.y;
   }
   lastMousePos = mousePos;
-
-  //calculate delauney
+  //calculate delaunay
   let lines;
   let pointsToDraw;
   let tris = BowyerWatson(points.concat({ position: mousePos }));
@@ -373,8 +373,6 @@ function MainLoop() {
     lines = Tris2lines(tris);
     pointsToDraw = points;
   }
-  console.log(lines[0]);
-
   //drawLines
   for (let i = 0; i < lines.length; i++) {
     let size =

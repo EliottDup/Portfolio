@@ -42,9 +42,7 @@ canvas {
 .highlight {
   color: blueviolet;
   background-color: hsl(271, 76%, 6%);
-  border-radius: 10px;
-  /* padding-left: 0.5ex;
-  padding-right: 0.5ex; */
+  border-radius: 0.5ex;
 }
 
 #row3 {
@@ -100,12 +98,21 @@ canvas {
   margin-bottom: 1vh;
 }
 
-#version {
+#footer {
   text-align: right;
   background-color: black;
   color: darkgrey;
   font-size: 0.75em;
   padding-right: 1vw;
+  padding-left: 1vw;
+  display: flex;
+  width: 98vw;
+  justify-content: flex-end;
+}
+
+#version {
+  width: fit-content;
+  text-align: right;
 }
 
 .article {
@@ -131,12 +138,16 @@ canvas {
   padding: 3%;
   max-width: 42.5%;
   min-width: 400px;
+  gap: 3%;
+}
+.project > a {
+  margin-bottom: 5%;
+  cursor: default;
 }
 
 .project > a > img {
   width: 100%;
   border-radius: 10px;
-  margin-bottom: 5%;
 }
 
 .showoff {
@@ -147,4 +158,24 @@ canvas {
   flex-wrap: wrap;
   align-items: stretch;
   justify-content: center;
+}
+
+.projInfo {
+  margin-top: 5%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.projInfo > a {
+  text-decoration: inherit;
+  color: inherit;
+  padding: 3%;
+  background-color: hsl(271, 76%, 6%);
+  border-radius: 10px;
+  color: blueviolet;
+}
+.projInfo > a::selection {
+  text-decoration: underline rgba(255, 250, 240, 1) 0.1em;
 }

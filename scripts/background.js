@@ -15,7 +15,7 @@ let outerborder = 100;
 let screensizeMult = window.innerWidth / 1080;
 console.log(screensizeMult);
 
-let voronoi = false;
+let voronoi = true;
 
 //Classes 'n funcs
 function Vector(x, y) {

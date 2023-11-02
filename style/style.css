@@ -149,6 +149,11 @@ canvas {
   border-radius: 10px;
 }
 
+.project > a > video {
+  width: 100%;
+  border-radius: 10px;
+}
+
 .showoff {
   margin-top: 3%;
   display: flex;

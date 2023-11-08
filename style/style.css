@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Chivo+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chivo&family=Noto+Color+Emoji&family=Noto+Sans&display=swap");
 
 ::selection {
   background-color: rgba(138, 43, 226, 0.5);
@@ -18,7 +19,8 @@ body {
 
   background-color: black;
   color: floralwhite;
-  font-family: "Chivo Mono", monospace;
+  /* font-family: "Chivo Mono", monospace; */
+  font-family: "Chivo", monospace;
   margin: 0;
 }
 
@@ -140,11 +142,12 @@ canvas {
   min-width: 400px;
   gap: 3%;
 }
-.project > a {
+.image-container {
   cursor: default;
+  position: relative;
 }
 
-.project > a > img {
+.project-image {
   width: 100%;
   border-radius: 10px;
 }
@@ -180,6 +183,7 @@ canvas {
   border-radius: 10px;
   color: blueviolet;
 }
+
 .projInfo > a::selection {
   text-decoration: underline rgba(255, 250, 240, 1) 0.1em;
 }
@@ -194,4 +198,12 @@ canvas {
   padding-left: 0.5ex;
   padding-right: 0.5ex;
   margin-top: 0;
+}
+
+.status-banner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  height: 50%;
 }

@@ -145,6 +145,7 @@ canvas {
 .image-container {
   cursor: default;
   position: relative;
+  overflow: hidden;
 }
 
 .project-image {
@@ -196,9 +197,11 @@ canvas {
 }
 
 .status-banner {
+  overflow: hidden;
   position: absolute;
   top: 0;
   right: 0;
-  z-index: 1;
+  z-index: 5;
   height: 50%;
+  filter: drop-shadow(0 0 10px black);
 }

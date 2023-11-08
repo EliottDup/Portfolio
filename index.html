@@ -38,8 +38,9 @@
         <span class="highlight">Metis Montessori Lyceum</span>, I have worked on
         a fair few projects, here are some of my favorites:
       </h3>
-      <div class="showoff">
-        <!-- MAZESWAP -->
+      <div class="showoff" id="favorite-project"></div>
+      <div class="showoff" id="projects-showoff">
+        <!-- MAZESWAP
         <div class="project">
           <div class="projectTitle">
             <h1 class="highlight">MAZESWAP</h1>
@@ -60,7 +61,7 @@
             result was a fun little two-player game in where you hunt each other
             down in a maze while trying to find the exit.
           </h4>
-          <div class="projInfo">
+          <div class="project-buttons">
             <a target="_blank" href="https://github.com/Twan-Reijinga/MazeSwap"
               >&lt;Source Code /&gt;</a
             >
@@ -69,14 +70,14 @@
             >
           </div>
         </div>
-        <!-- LOOPER INC. -->
+        LOOPER INC.
         <div class="project">
           <div class="projectTitle">
             <h1 class="highlight">Looper Inc.</h1>
           </div>
           <a class="image-container"
             ><img
-              src="images/projects/looper-Inc-logo.png"
+              src="images/projects/looper.png"
               alt="The Looper Inc. logo"
               class="project-image" />
             <img
@@ -113,19 +114,21 @@
           </div>
           <a class="image-container"
             ><img
-              src="images/projects/traffic-lights.png"
+              src="images/projects/traffic.png"
               alt="the Mazeswap logo"
-              class="project-image" />
-            <img
-              src="images/icons/banner-wip.png"
-              alt="WORK IN PROGRESS"
-              class="status-banner"
-          /></a>
+              class="project-image"
+            />
+          </a>
           <h4 class="paragraph">
             Together with a friend, we are attempting to create a traffic
             simulation that uses AI to control traffic lights.
           </h4>
-        </div>
+          <img
+            src="images/icons/banner-wip.png"
+            alt="WORK IN PROGRESS"
+            class="status-banner"
+          />
+        </div> -->
       </div>
     </div>
 
@@ -211,9 +214,10 @@
       </div>
     </div>
     <div id="footer">
-      <p onclick="voronoi = !voronoi" id="version">v0.4.1</p>
+      <p onclick="voronoi = !voronoi" id="version">v0.5.0</p>
     </div>
     <script src="scripts/effects.js"></script>
     <script src="scripts/background.js"></script>
+    <script src="scripts/projectLoader.js"></script>
   </body>
 </html>

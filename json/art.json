@@ -7,6 +7,12 @@
       "filetype": "png"
     },
     {
+      "id": "desert_pyramid",
+      "title": "Desert Pyramid",
+      "description": "A render I made a while ago, which was actually a remake of a 4-year old render.",
+      "filetype": "png"
+    },
+    {
       "id": "particles",
       "title": "Floating Island",
       "description": "A cool floating island I made a while back trying to challenge myself at making a good-looking render.",

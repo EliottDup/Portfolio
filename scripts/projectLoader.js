@@ -2,9 +2,9 @@ const projectsContainer = document.getElementById("projects-showoff");
 const favoriteProjectContainer = document.getElementById("favorite-project");
 
 const banners = [
-  "images/icons/banner-wip.png",
-  "images/icons/banner-done.png",
-  "images/icons/banner-abandoned.png",
+  "media/icons/banner-wip.png",
+  "media/icons/banner-done.png",
+  "media/icons/banner-abandoned.png",
 ];
 
 fetch("../json/projects.json")
@@ -43,7 +43,7 @@ function createProjectElement(project, parent) {
 
   const projectImage = document.createElement("img");
   projectImage.classList.add("project-image");
-  projectImage.src = "images/projects/" + project.id + ".png";
+  projectImage.src = "media/projects/" + project.id + ".png";
 
   imageContainer.appendChild(projectImage);
 

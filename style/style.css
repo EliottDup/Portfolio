@@ -152,11 +152,11 @@ canvas {
   position: relative;
 }
 
-#favorite-project > .project {
+.featured > .project {
   max-width: none;
 }
 
-#favorite-project > .project > .image-container {
+.featured > .project > .image-container {
   max-width: 40vw;
 }
 

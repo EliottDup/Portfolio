@@ -1,14 +1,15 @@
 const paragraphs = document.getElementsByClassName("paragraph");
+console.log(paragraphs);
 
 if (paragraphs) {
-  paragraphs.forEach((paragaph) => {
+  for (let paragaph of paragraphs) {
     highlight(paragaph);
-  });
+  }
 }
 
 function highlight(p) {
   let textContent = p.textContent;
 
-  let highlightedwords = textContent.match(/\\{ ([^\\}]+) \\}/g);
+  let highlightedwords = textContent.match(/\\{([^\\}]+)\\}/g);
   console.log(highlightedwords);
 }

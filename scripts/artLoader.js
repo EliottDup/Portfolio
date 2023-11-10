@@ -6,9 +6,14 @@ videoFileTypes = ["mp4", "avi"];
 fetch("json/art.json")
   .then((response) => response.json())
   .then((data) => {
-    data.renders.forEach((render) => {
-      if (data.favorite == render.id) {
-        //make fav here
+    let fav = -1;
+    if (data.favorite == "none") {
+      fav = getRandomInt(data.renders.length);
+    }
+
+    data.renders.forEach((render, index) => {
+      if (data.favorite == render.id || index == fav) {
+        createArtElement(render, favoriteRenderContainer);
       } else {
         createArtElement(render, artContainer);
       }
@@ -50,12 +55,12 @@ function isVideo(filetype) {
 }
 
 function addArtWork(render) {
-  const renderUrl = "images/art/" + render.id + "." + render.filetype;
+  const renderUrl = "media/art/" + render.id + "." + render.filetype;
 
   const imageContainer = document.createElement("a");
   imageContainer.href = renderUrl;
 
-  if (isVideo()) {
+  if (isVideo(render.filetype)) {
     imageContainer.href = "";
     const video = document.createElement("video");
     video.loop = true;
@@ -81,12 +86,15 @@ function addArtWork(render) {
 
 function containsObject(array, object) {
   //BROKEN, FIX ME
-  var i;
-  for (i = 0; i < array.length; i++) {
+
+  for (let i = 0; i < array.length; i++) {
     if (array[i] == object) {
       return true;
     }
   }
-
   return false;
+}
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
 }

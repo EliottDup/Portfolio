@@ -7,9 +7,15 @@
       "filetype": "png"
     },
     {
+      "id": "desert_pyramid",
+      "title": "Desert Pyramid",
+      "description": "A render I made a while ago, which was actually a remake of a 4-year old render.",
+      "filetype": "png"
+    },
+    {
       "id": "particles",
-      "title": "Floating Island",
-      "description": "A cool floating island I made a while back trying to challenge myself at making a good-looking render.",
+      "title": "Looping Particle Animation",
+      "description": "I also really enjoy making looping animations, there is just something about seeing everything seamlessly restart that I really love.",
       "filetype": "mp4"
     }
   ],

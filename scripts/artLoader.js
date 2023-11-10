@@ -1,3 +1,5 @@
+console.log("loading art");
+
 const artContainer = document.getElementById("art-showoff");
 const favoriteRenderContainer = document.getElementById("favorite-render");
 
@@ -20,6 +22,8 @@ fetch("json/art.json")
     });
   })
   .catch((error) => console.log("Error fetching art data: ", error));
+
+console.log("art loaded");
 
 function createArtElement(render, parent) {
   const renderContainer = document.createElement("div");
@@ -46,6 +50,7 @@ function createArtElement(render, parent) {
   descriptionElement.innerHTML = render.description;
 
   renderContainer.appendChild(descriptionElement);
+  highlight(descriptionElement);
 
   parent.appendChild(renderContainer);
 }

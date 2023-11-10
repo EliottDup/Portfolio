@@ -1,3 +1,4 @@
+console.log("loading projects");
 const projectsContainer = document.getElementById("projects-showoff");
 const favoriteProjectContainer = document.getElementById("favorite-project");
 
@@ -20,6 +21,8 @@ fetch("../json/projects.json")
     });
   })
   .catch((error) => console.error("Error fetching projects data: ", error));
+
+console.log("loaded projects");
 
 function createProjectElement(project, parent) {
   // create main element
@@ -50,11 +53,12 @@ function createProjectElement(project, parent) {
   projectContainer.appendChild(imageContainer);
 
   // add description
-  const descriptionElement = document.createElement("h4");
+  const descriptionElement = document.createElement("h3");
   descriptionElement.classList.add("paragraph");
   descriptionElement.innerHTML = project.description;
 
   projectContainer.appendChild(descriptionElement);
+  highlight(descriptionElement);
 
   // add buttons if necessary
   if (project.buttons.length != 0) {

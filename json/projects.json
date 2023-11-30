@@ -6,7 +6,8 @@
       "status": 0,
       "description": "\\{Looper Inc.\\} is a bit of a passion project that started in 2022, when I made a game for school. Sadly, shortly after finishing the game, my computer's SSD drive broke, and the game was lost. The game was not very impressive in any kind of way, as it was made in only 4 months, and it was my \\{first time\\} ever designing and making an actual game. \\{Looper Inc.\\} aims to be a remake and, if possible, a \\{finalisation\\} of the game.<br /> <br /> But now about the gameplay: <br /> \\{Looper Inc.\\} is a movement based game inspired by games such as \\{Karlson\\} and \\{Titanfall 2\\}, featuring high-speed movement and parkour. However, it also features a unique mechanic:<br /><br /> \\{Time Travel\\} <br /> <br /> More specifically, \\{Time Reversal\\}, mostly inspired but the movie \\{Tenet\\} or the game \\{The Entropy Centre\\}<br /> <br /> Development is still in its earliest stages and scince I do not have much free time to spend on this project, this project is not ready to be finished \\{anytime soon\\}.",
 
-      "buttons": []
+      "buttons": [],
+      "show": true
     },
     {
       "id": "mazeswap",
@@ -22,14 +23,16 @@
           "text": "Play The Game",
           "destination": "https://c0der23.itch.io/mazeswap"
         }
-      ]
+      ],
+      "show": true
     },
     {
       "id": "traffic",
       "title": "Traffic Lights AI",
       "status": 0,
       "description": "Together with a friend, we are attempting to create a \\{traffic simulation\\} that uses \\{AI\\} to control \\{traffic lights\\}.",
-      "buttons": []
+      "buttons": [],
+      "show": false
     }
   ],
   "favorite": "looper"

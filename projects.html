@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Eliott Duparc | Projects</title>
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <canvas id="canvas">voronoi</canvas>
+
+    <div id="projects" class="article">
+      <h1 class="title"><span class="highlight">Projects</span></h1>
+      <h3 class="paragraph">
+        During my time at the \{Metis Montessori Lyceum\}, I have worked on a
+        fair few projects, here are some of my favorites:
+      </h3>
+      <div class="showoff featured" id="favorite-project"></div>
+      <div class="showoff" id="projects-showoff">showAll</div>
+    </div>
+
+    <div id="contact">
+      <div>Wanna get in touch? You can find me here:</div>
+      <div id="contactlinks">
+        <a
+          class="contactlink"
+          href="https://youtube.com/@c0der23"
+          target="_blank"
+          ><img src="media/icons/yt.png" alt="The Youtube logo" /> Youtube</a
+        >
+        <a class="contactlink" href="mailto:eliott.duparc@gmail.com">
+          <img src="media/icons/at.svg" alt="An at symbol" />E-Mail</a
+        >
+        <a
+          class="contactlink"
+          href="https://github.com/EliottDup"
+          target="_blank"
+          ><img
+            src="media/icons/github-white.svg"
+            alt="The GitHub logo"
+          />GitHub</a
+        >
+      </div>
+    </div>
+    <div id="footer">
+      <p onclick="voronoi = !voronoi" id="version">v0.6.0</p>
+    </div>
+    <script src="scripts/background.js" defer></script>
+    <!-- <script src="scripts/effects.js" defer></script> -->
+    <script src="scripts/highlighter.js" defer></script>
+    <script src="scripts/projectLoader.js" defer></script>
+  </body>
+</html>

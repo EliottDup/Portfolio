@@ -64,6 +64,10 @@ canvas {
   margin-top: 0;
 }
 
+.title > a {
+  text-decoration: underline;
+}
+
 #contact {
   width: 100vw;
   padding: 2vh 0 2vh 0;
@@ -117,10 +121,14 @@ canvas {
   text-align: right;
 }
 
+a {
+  text-decoration: none;
+}
+
 .article {
   margin-left: 10vw;
   margin-right: 10vw;
-  margin-top: 10vh;
+  margin-top: 5vh;
   width: 80vw;
   padding: 4vh;
   border-radius: 15px;

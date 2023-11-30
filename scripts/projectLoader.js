@@ -1,6 +1,12 @@
 console.log("loading projects");
 const projectsContainer = document.getElementById("projects-showoff");
 const favoriteProjectContainer = document.getElementById("favorite-project");
+let showAll = false;
+
+if (projectsContainer.innerHTML == "showAll") {
+  projectsContainer.innerHTML = "";
+  showAll = true;
+}
 
 const banners = [
   "media/icons/banner-wip.png",
@@ -16,7 +22,9 @@ fetch("../json/projects.json")
         project.title = "Featured Project: " + project.title;
         createProjectElement(project, favoriteProjectContainer);
       } else {
-        createProjectElement(project, projectsContainer);
+        if (showAll || project.show) {
+          createProjectElement(project, projectsContainer);
+        }
       }
     });
   })

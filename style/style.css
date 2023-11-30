@@ -209,10 +209,6 @@ a {
   max-width: 25%;
 }
 
-.project-buttons > a::selection {
-  text-decoration: underline rgba(255, 250, 240, 1) 0.1em;
-}
-
 .projectTitle {
   display: flex;
   justify-content: center;
@@ -233,4 +229,13 @@ a {
   z-index: 5;
   width: 10vw;
   filter: drop-shadow(0 0 10px black);
+}
+
+.page-link {
+  font-size: x-large;
+  text-decoration: inherit;
+  color: blueviolet;
+  background-color: hsl(271, 76%, 6%);
+
+  padding: 2vh 2vw 2vh 2vw;
 }

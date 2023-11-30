@@ -12,13 +12,14 @@ const banners = [
   "media/icons/banner-wip.png",
   "media/icons/banner-done.png",
   "media/icons/banner-abandoned.png",
+  "media/icons/banner-undecided.png",
 ];
 
 fetch("../json/projects.json")
   .then((response) => response.json())
   .then((data) => {
     data.projects.forEach((project, i) => {
-      if (project.id == data.favorite) {
+      if (project.id == data.favorite && !showAll && false) {
         project.title = "Featured Project: " + project.title;
         createProjectElement(project, favoriteProjectContainer);
       } else {

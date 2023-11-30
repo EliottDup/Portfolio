@@ -68,6 +68,10 @@ canvas {
   text-decoration: underline;
 }
 
+.title > a:active {
+  text-decoration: underline blueviolet;
+}
+
 #contact {
   width: 100vw;
   padding: 2vh 0 2vh 0;
@@ -158,6 +162,7 @@ a {
   min-width: 400px;
   gap: 1.5vh;
   position: relative;
+  justify-content: center;
 }
 
 .featured > .project {

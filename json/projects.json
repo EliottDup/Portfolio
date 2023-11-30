@@ -4,7 +4,7 @@
       "id": "looper",
       "title": "Looper Inc",
       "status": 0,
-      "description": "\\{Looper Inc.\\} is a bit of a passion project that started in 2022, when I made a game for school. Sadly, shortly after finishing the game, my computer's SSD drive broke, and the game was lost. The game was not very impressive in any kind of way, as it was made in only 4 months, and it was my \\{first time\\} ever designing and making an actual game. \\{Looper Inc.\\} aims to be a remake and, if possible, a \\{finalisation\\} of the game.<br /> <br /> But now about the gameplay: <br /> \\{Looper Inc.\\} is a movement based game inspired by games such as \\{Karlson\\} and \\{Titanfall 2\\}, featuring high-speed movement and parkour. However, it also features a unique mechanic:<br /><br /> \\{Time Travel\\} <br /> <br /> More specifically, \\{Time Reversal\\}, mostly inspired but the movie \\{Tenet\\} or the game \\{The Entropy Centre\\}<br /> <br /> Development is still in its earliest stages and scince I do not have much free time to spend on this project, this project is not ready to be finished \\{anytime soon\\}.",
+      "description": "\\{Looper Inc.\\} is a bit of a passion project that started in 2022, when I made a game for school. Sadly, shortly after finishing the game, my computer's SSD drive broke, and the game was lost. The game was not very impressive in any kind of way, as it was made in only 4 months, and it was my first time ever designing and making an actual game. \\{Looper Inc.\\} aims to be a remake and, if possible, a finalisation of the game.<br /> <br /> But now about the gameplay: <br /> \\{Looper Inc.\\} is a movement based game inspired by games such as \\{Karlson\\} and \\{Titanfall 2\\}, featuring high-speed movement and parkour. However, it also features a unique mechanic:  \\{Time Travel\\} <br /> <br /> More specifically, \\{Time Reversal\\}, mostly inspired but the movie \\{Tenet\\} or the game \\{The Entropy Centre\\}<br /> <br /> Development is still in its earliest stages and scince I do not have much free time to spend on this project, this project is not ready to be finished anytime soon.",
 
       "buttons": [],
       "show": true
@@ -13,7 +13,7 @@
       "id": "mazeswap",
       "title": "MAZESWAP",
       "status": 1,
-      "description": "For the \\{GMTK Game Jam\\} of \\{2023\\}, which had the theme \\{roles reversed\\}, me and a friend worked together on making a game in \\{p5.js\\}. The end result was a fun little two-player game in where you hunt each other down in a maze while trying to find the exit.",
+      "description": "For the \\{GMTK Game Jam\\} of \\{2023\\}, which had the theme \\{Roles Reversed\\}, me and a friend worked together on making a game in \\{p5.js\\}. The end result was a fun little two-player game in where you hunt each other down in a maze while trying to find the exit.",
       "buttons": [
         {
           "text": "<Source Code/>",
@@ -25,6 +25,12 @@
         }
       ],
       "show": true
+    },
+    {
+      "id": "chess",
+      "title": "Superhot Chess",
+      "status": 4,
+      "description": "A while ago, I wanted to try to create a version of chess where both players submit and make their move at the same time. The game would end when the king piece was slain, not checkmated, and if two pieces walked to the same place, the higher ranking one would win or they would annihilate each other. Sadly, I stopped working on the project before I had a complete chess game."
     },
     {
       "id": "traffic",

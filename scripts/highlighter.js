@@ -14,16 +14,12 @@ function highlight(p) {
 
   let highlightedWords = textContent.match(/\\{([^\\}]+)\\}/g);
   if (highlightedWords) {
-    console.log(highlightedWords);
-
     highlightedWords.forEach((word) => {
-      console.log(word);
       const highlightedText = word.slice(2, -2);
       const spanElement = document.createElement("span");
 
       spanElement.classList.add("highlight");
       spanElement.textContent = highlightedText;
-      console.log(word.replaceAll("\\", "\\"));
 
       p.innerHTML = p.innerHTML.replace(word, spanElement.outerHTML);
     });

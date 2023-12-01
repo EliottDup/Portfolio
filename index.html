@@ -39,7 +39,10 @@
       </h3>
       <!-- <div class="showoff featured" id="favorite-project"></div> -->
       <div class="showoff" id="projects-showoff"></div>
-      <a class="page-link" href="projects.html">More projects!</a>
+      <div class="project-buttons">
+        <!--TODO: fix button wo\idth-->
+        <a class="page-link" href="projects.html">More projects!</a>
+      </div>
     </div>
 
     <div id="art" class="article">
@@ -77,12 +80,13 @@
       </div>
     </div>
     <div id="footer">
-      <p onclick="voronoi = !voronoi" id="version">v0.6.1</p>
+      <p onclick="voronoi = !voronoi" id="version"></p>
     </div>
     <script src="scripts/background.js" defer></script>
     <script src="scripts/effects.js" defer></script>
     <script src="scripts/highlighter.js" defer></script>
     <script src="scripts/artLoader.js" defer></script>
+    <script src="scripts/versionUpdater.js" defer></script>
     <script src="scripts/projectLoader.js" defer></script>
   </body>
 </html>

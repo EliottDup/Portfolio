@@ -1,4 +1,4 @@
 const elem = document.getElementById("version");
-const version = "v0.6.2";
+const version = "v0.7.0";
 
 elem.innerHTML = version;

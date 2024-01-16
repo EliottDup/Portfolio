@@ -9,7 +9,7 @@ fetch("json/art.json")
   .then((response) => response.json())
   .then((data) => {
     let fav = -1;
-    if (data.favorite == "none") {
+    if (data.favorite == "none" && false) {
       fav = getRandomInt(data.renders.length);
     }
 

@@ -14,6 +14,8 @@ body::-webkit-scrollbar {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 
@@ -22,6 +24,7 @@ body {
   /* font-family: "Chivo Mono", monospace; */
   font-family: "Chivo", monospace;
   margin: 0;
+  align-items: center;
 }
 
 canvas {
@@ -130,8 +133,8 @@ a {
 }
 
 .article {
-  margin-left: 10vw;
-  margin-right: 10vw;
+  /* margin-left: 10vw;
+  margin-right: 10vw; */
   margin-top: 5vh;
   width: 80vw;
   padding: 4vh;
@@ -248,7 +251,7 @@ a {
   text-decoration: inherit;
   color: blueviolet;
   border-radius: 10px;
-  background-color: hsl(271, 76%, 6%);
+  background-color: #000000;
 }
 
 #backbutton {

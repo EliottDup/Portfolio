@@ -162,7 +162,6 @@ a {
   min-width: 400px;
   gap: 1.5vh;
   position: relative;
-  justify-content: center;
 }
 
 .featured > .project {
@@ -174,6 +173,7 @@ a {
 }
 
 .project-image {
+  max-height: 30vh;
   width: 100%;
   border-radius: 10px;
 }
@@ -252,9 +252,7 @@ a {
 }
 
 #backbutton {
-  width: 5vw;
-  height: 2vh;
-  padding: 1%;
+  max-width: fit-content;
   border-radius: 0px 0px 15px 0px;
   background-color: hsla(271, 76%, 30%, 0.5);
   display: flex;
@@ -265,6 +263,10 @@ a {
 }
 
 #backbutton > a {
+  width: max-content;
   color: floralwhite;
   text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: 1%;
 }

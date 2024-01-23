@@ -101,7 +101,7 @@ function createProjectElement(project, parent) {
   const statusBanner = document.createElement("div");
   statusBanner.classList.add("status-banner");
   statusBanner.classList.add(banner.class);
-  statusBanner.innerHTML = banner.text;
+  statusBanner.innerHTML = "<p>" + banner.text + "</p>";
 
   projectContainer.appendChild(statusBanner);
 

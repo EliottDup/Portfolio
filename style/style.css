@@ -250,6 +250,10 @@ a {
   filter: drop-shadow(0 0 10px black);
 }
 
+.status-banner > p {
+  margin: 0;
+}
+
 .done-banner {
   background-color: rgb(0, 200, 0);
 }
@@ -262,7 +266,12 @@ a {
     #000000 50px,
     #000000 100px
   );
-  text-shadow: 0 0 3px black;
+  color: #000000;
+  /* text-shadow: 0 0 3px black; */
+}
+
+.wip-banner > p {
+  background-color: #ffff00;
 }
 
 .abandoned-banner {

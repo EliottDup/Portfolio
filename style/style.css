@@ -165,6 +165,7 @@ a {
   min-width: 400px;
   gap: 1.5vh;
   position: relative;
+  overflow: hidden;
 }
 
 .featured > .project {
@@ -224,6 +225,7 @@ a {
   margin-top: 0;
 }
 
+/* 
 .status-banner {
   overflow: hidden;
   position: absolute;
@@ -232,6 +234,43 @@ a {
   z-index: 5;
   width: 10vw;
   filter: drop-shadow(0 0 10px black);
+} */
+
+.status-banner {
+  position: absolute;
+  transform: translate(50%, -50%) rotate(45deg);
+  top: 70px;
+  right: 70px;
+  width: 250px;
+
+  text-align: center;
+  font-size: larger;
+  padding: 2%;
+
+  filter: drop-shadow(0 0 10px black);
+}
+
+.done-banner {
+  background-color: rgb(0, 200, 0);
+}
+
+.wip-banner {
+  background: repeating-linear-gradient(
+    60deg,
+    #ffff00,
+    #ffff00 50px,
+    #000000 50px,
+    #000000 100px
+  );
+  text-shadow: 0 0 3px black;
+}
+
+.abandoned-banner {
+  background-color: red;
+}
+
+.undecided-banner {
+  background-color: orange;
 }
 
 .page-buttons {

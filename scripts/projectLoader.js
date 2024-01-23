@@ -9,10 +9,10 @@ if (projectsContainer.innerHTML == "showAll") {
 }
 
 const banners = [
-  "media/icons/banner-wip.png",
-  "media/icons/banner-done.png",
-  "media/icons/banner-abandoned.png",
-  "media/icons/banner-undecided.png",
+  { class: "wip-banner", text: "Work In Progress" },
+  { class: "done-banner", text: "Done" },
+  { class: "abandoned-banner", text: "Archived" },
+  { class: "undecided-banner", text: "Undecided" },
 ];
 
 fetch("../json/projects.json")
@@ -89,9 +89,19 @@ function createProjectElement(project, parent) {
     projectContainer.appendChild(buttonsContainer);
   }
 
+  //add banner
+  /*
   const statusBanner = document.createElement("img");
   statusBanner.classList.add("status-banner");
   statusBanner.src = banners[project.status];
+
+  projectContainer.appendChild(statusBanner);*/
+  var banner = banners[project.status];
+
+  const statusBanner = document.createElement("div");
+  statusBanner.classList.add("status-banner");
+  statusBanner.classList.add(banner.class);
+  statusBanner.innerHTML = banner.text;
 
   projectContainer.appendChild(statusBanner);
 

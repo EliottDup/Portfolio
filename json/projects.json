@@ -29,7 +29,7 @@
     {
       "id": "superchess",
       "title": "Superhot Chess",
-      "status": 2,
+      "status": 3,
       "description": "A while ago, I wanted to try to create a version of chess where both players submit and make their move at the same time. The game would end when the king piece was slain, not checkmated, and if two pieces walked to the same place, the higher ranking one would win or they would annihilate each other. Sadly, I stopped working on the project before I had a complete chess game. I am unsure whether I want to return to this project",
       "buttons": [],
       "show": true

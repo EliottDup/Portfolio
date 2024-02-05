@@ -81,6 +81,7 @@ canvas {
   background-color: #0f0014bf;
   /* border-radius: 10px 10px 0 0; */
   text-align: center;
+  backdrop-filter: blur(5px) brightness(2);
 }
 
 #contactlinks {

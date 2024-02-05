@@ -76,6 +76,7 @@ canvas {
 }
 
 #contact {
+  margin-top: 10vh;
   width: 100vw;
   padding: 2vh 0 2vh 0;
   background-color: #0f0014bf;
@@ -232,7 +233,6 @@ a {
   flex-direction: column;
   width: 100vw;
   align-items: center;
-  padding-bottom: 10vh;
 }
 
 .status-banner {

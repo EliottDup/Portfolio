@@ -6,11 +6,15 @@
 }
 
 .highlight::selection {
-  text-decoration: underline rgba(255, 250, 240, 1) 0.1em;
+  text-decoration: underline var(--textColor) 0.1em;
 }
 
 body::-webkit-scrollbar {
   display: none;
+}
+
+:root{
+  --textColor: hwb(40 94% 15%);
 }
 
 body {
@@ -20,7 +24,7 @@ body {
   scrollbar-width: none; /* Firefox */
 
   background-color: black;
-  color: floralwhite;
+  color: var(--textColor);
   /* font-family: "Chivo Mono", monospace; */
   font-family: "Chivo", monospace;
   margin: 0;
@@ -162,7 +166,8 @@ a {
 
 .paragraph {
   margin-top: 3%;
-  color: #fffaf0;
+
+  color: var(--textColor)
 }
 
 .image-container {
@@ -174,7 +179,6 @@ a {
 }
 
 .project {
-  z-index: 100;
   display: flex;
   flex-direction: column;
   background-color: hsla(271, 76%, 30%, 0.15);
@@ -188,7 +192,24 @@ a {
 
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
+
+  z-index: 3;
 }
+
+/* .project::before
+{
+  content: "";
+  z-index: -1;
+  display: inherit;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translate(-3%, -3%);
+
+  background-image: url('../media/noise.png');
+  background-size: 10;
+  opacity: 0.03;
+} */
 
 .featured > .project {
   max-width: none;
@@ -336,7 +357,8 @@ a {
 
 #backbutton > a {
   width: max-content;
-  color: floralwhite;
+
+  color: var(--textColor);
   text-align: center;
   width: 100%;
   height: 100%;

@@ -21,7 +21,13 @@
     {
       "id": "feproject",
       "title": "Save the Date Event Render",
-      "description": "This was made for the company \\{Fit Earth\\}, for their debut event. Fit Earth is the club/place I go freerunning, so I really enjoyed making this render for them.",
+      "description": "This was made for the company \\{Fit Earth\\}, for their debut event. Fit Earth is the club/place I go \\{freerunning\\}, so I really enjoyed making this render for them.",
+      "filetype": "mp4"
+    },
+    {
+      "id": "cubes",
+      "title": "Isometric Cube Animation",
+      "description": "I inspired this \\{animation\\} from a post that I saw online, thought it looked neat and wanted to recreate it. I also made it match the \\{site colors\\} :)",
       "filetype": "mp4"
     }
   ],

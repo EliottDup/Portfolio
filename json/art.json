@@ -30,6 +30,12 @@
       "description": "I inspired this \\{animation\\} from a post that I saw online, thought it looked neat and wanted to recreate it. I also made it match the \\{site colors\\} :)",
       "filetype": "mp4",
       "starttime": 0.75
+    },
+    {
+      "id": "impossible_tri",
+      "title": "Impossible Shape",
+      "description": "Messing around with \\{true Isometric perspective\\} is something I will never get tired of. Making \\{penrose triangles\\} within themselves, with even more impossible shapes inside of it is just too cool.",
+      "filetype": "png"
     }
   ],
   "favorite": "none"

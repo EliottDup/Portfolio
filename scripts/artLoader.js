@@ -50,6 +50,18 @@ function createArtElement(render, parent) {
   descriptionElement.innerHTML = render.description;
 
   renderContainer.appendChild(descriptionElement);
+
+  //add banner
+  if (isVideo(render.filetype)) {
+    // add banner
+
+    const statusBanner = document.createElement("div");
+    statusBanner.classList.add("status-banner");
+    statusBanner.classList.add("hover-banner");
+    statusBanner.innerHTML = "<p>Hover over me!</p>";
+
+    renderContainer.appendChild(statusBanner);
+  }
   highlight(descriptionElement);
 
   parent.appendChild(renderContainer);
@@ -90,14 +102,6 @@ function addArtWork(render, renderContainer) {
       video.pause();
       // video.currentTime = render.starttime || 0;
     });
-    // add banner
-
-    const statusBanner = document.createElement("div");
-    statusBanner.classList.add("status-banner");
-    statusBanner.classList.add("hover-banner");
-    statusBanner.innerHTML = "<p>Hover over me!</p>";
-
-    renderContainer.appendChild(statusBanner);
   } else {
     const image = document.createElement("img");
     image.src = renderUrl;

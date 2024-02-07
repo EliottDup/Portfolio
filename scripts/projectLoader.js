@@ -90,12 +90,6 @@ function createProjectElement(project, parent) {
   }
 
   //add banner
-  /*
-  const statusBanner = document.createElement("img");
-  statusBanner.classList.add("status-banner");
-  statusBanner.src = banners[project.status];
-
-  projectContainer.appendChild(statusBanner);*/
   var banner = banners[project.status];
 
   const statusBanner = document.createElement("div");

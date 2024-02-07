@@ -14,7 +14,7 @@ body::-webkit-scrollbar {
 }
 
 :root {
-  --textColor: hwb(40 94% 15%);
+  --textColor: #d9d4cc;
 }
 
 body {

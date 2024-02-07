@@ -4,7 +4,7 @@
     <title>Eliott Duparc | Home</title>
     <link rel="stylesheet" href="style/style.css" />
   </head>
-  <body>
+  <body onload="addVideoListeners()">
     <canvas id="canvas"></canvas>
     <div id="start">
       <div id="title">
@@ -83,11 +83,11 @@
     <div id="footer">
       <p onclick="voronoi = !voronoi" id="version"></p>
     </div>
-    <script src="scripts/background.js" defer></script>
-    <script src="scripts/effects.js" defer></script>
-    <script src="scripts/highlighter.js" defer></script>
-    <script src="scripts/artLoader.js" defer></script>
-    <script src="scripts/versionUpdater.js" defer></script>
-    <script src="scripts/projectLoader.js" defer></script>
+    <script src="scripts/background.js"></script>
+    <script src="scripts/effects.js"></script>
+    <script src="scripts/highlighter.js"></script>
+    <script src="scripts/artLoader.js"></script>
+    <script src="scripts/versionUpdater.js"></script>
+    <script src="scripts/projectLoader.js"></script>
   </body>
 </html>

@@ -28,7 +28,8 @@
       "id": "cubes",
       "title": "Isometric Cube Animation",
       "description": "I inspired this \\{animation\\} from a post that I saw online, thought it looked neat and wanted to recreate it. I also made it match the \\{site colors\\} :)",
-      "filetype": "mp4"
+      "filetype": "mp4",
+      "starttime": 0.75
     }
   ],
   "favorite": "none"

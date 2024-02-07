@@ -42,7 +42,7 @@ function createArtElement(render, parent) {
   renderContainer.appendChild(titleContainer);
 
   //add the actual art work
-  renderContainer.appendChild(addArtWork(render));
+  renderContainer.appendChild(addArtWork(render, renderContainer));
 
   // add description
   const descriptionElement = document.createElement("h4");
@@ -59,7 +59,7 @@ function isVideo(filetype) {
   return containsObject(videoFileTypes, filetype);
 }
 
-function addArtWork(render) {
+function addArtWork(render, renderContainer) {
   const renderUrl = "media/art/" + render.id + "." + render.filetype;
 
   const imageContainer = document.createElement("a");
@@ -69,9 +69,10 @@ function addArtWork(render) {
     imageContainer.href = "";
     const video = document.createElement("video");
     video.loop = true;
-    video.autoplay = true;
+    // video.autoplay = true;
     video.muted = true;
     video.classList.add("project-image");
+    video.classList.add("project-video");
 
     const source = document.createElement("source");
     source.type = "video/" + render.filetype;
@@ -79,6 +80,16 @@ function addArtWork(render) {
 
     video.appendChild(source);
     imageContainer.appendChild(video);
+    video.currentTime = render.starttime || 0;
+
+    renderContainer.addEventListener("mouseenter", () => {
+      video.play();
+    });
+
+    renderContainer.addEventListener("mouseleave", () => {
+      video.pause();
+      // video.currentTime = render.starttime || 0;
+    });
   } else {
     const image = document.createElement("img");
     image.src = renderUrl;

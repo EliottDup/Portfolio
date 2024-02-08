@@ -1,5 +1,5 @@
 {
-  "mainpage": ["floating_island", "particles", "fe_project"],
+  "mainpage": ["impossible_tri", "desert_pyramid"],
   "renders": [
     {
       "placement": 0,
@@ -13,8 +13,7 @@
       "id": "desert_pyramid",
       "title": "Desert Pyramid",
       "description": "A render I made a while ago, which was actually a \\{remake\\} of a 4-year old render.",
-      "filetype": "png",
-      "show": true
+      "filetype": "png"
     },
     {
       "placement": 2,
@@ -44,6 +43,14 @@
       "title": "Impossible Shape",
       "description": "Messing around with \\{true Isometric perspective\\} is something I will never get tired of. Making \\{penrose triangles\\} within themselves, with even more impossible shapes inside of it is just too cool.",
       "filetype": "png"
+    },
+    {
+      "placement": 6,
+      "id": "worldgen",
+      "title": "Terrain Generation",
+      "description": "\\{Terrain generation\\} is another topic that really interests me, I made this animation in Blender to showcase simple terrain generation to students.",
+      "filetype":"mp4",
+      "starttime": 2
     }
   ]
 }

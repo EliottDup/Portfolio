@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="style/style.css" />
     <link rel="icon" type="image/x-icon" href="media/icons/favicon.ico" />
   </head>
-  <body onload="loadArt(true)">
+  <body onload="loadArt();highlight();">
     <canvas id="canvas">voronoi</canvas>
     <div id="backbutton">
       <a href="../"><p><< HOME</p></a>
@@ -15,10 +15,19 @@
       <h1 class="title"><span class="highlight">Art & Animation</span></h1>
       <h3 class="paragraph">
         I also enjoy making \{3d Renders\} and \{Animations\} with \{Blender\},
-        and other software. Here are some of my favorites and most recent ones:
+        and other software. Here here are all those I could still get my hands on:
       </h3>
-      <div class="showoff" id="art-showoff"></div>
+      <!-- <div class="showoff" id="art-showoff"></div> -->
+      
+      <div class="art-showoff">
+        <div class="art-column" id="artCol1"></div>
+        <div class="art-column" id="artCol2"></div>
+        <div class="art-column" id="artCol3"></div>
+      </div>
+
     </div>
+
+    <div id="art-modal">    </div>
 
     <div id="contact">
       <div>Wanna get in touch? You can find me here:</div>
@@ -46,6 +55,7 @@
     <div id="footer">
       <p onclick="voronoi = !voronoi" id="version"></p>
     </div>
+    <script src="scripts/modalLoader.js"></script>
     <script src="scripts/background.js"></script>
     <script src="scripts/highlighter.js"></script>
     <script src="scripts/artLoader.js"></script>

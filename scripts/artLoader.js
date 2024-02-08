@@ -1,30 +1,35 @@
-console.log("loading art");
-
 const artContainer = document.getElementById("art-showoff");
 const favoriteRenderContainer = document.getElementById("favorite-render");
 const videoFileTypes = ["mp4", "avi"];
 
-showAll = false;
+function loadArt(showAll) {
+  console.log("loading art");
+  fetch("json/art.json")
+    .then((response) => response.json())
+    .then((data) => {
+      sorted = data.renders.sort((a, b) => a.placement - b.placement);
 
-if (artContainer.innerHTML == "showAll") {
-  artContainer.innerHTML = "";
-  showAll = true;
+      if (!showAll) {
+        sorted = getRelevantPieces(sorted, data.mainpage);
+      }
+      sorted.forEach((render, index) => {
+        createArtElement(render, artContainer);
+      });
+    })
+    .catch((error) => console.log("Error fetching art data: ", error));
+
+  console.log("art loaded");
 }
 
-fetch("json/art.json")
-  .then((response) => response.json())
-  .then((data) => {
-    sorted = data.renders.sort((a, b) => a.placement - b.placement);
+function getRelevantPieces(renders, filters) {
+  arr = [];
 
-    sorted.forEach((render, index) => {
-      if (showAll || render.show) {
-        createArtElement(render, artContainer);
-      }
-    });
-  })
-  .catch((error) => console.log("Error fetching art data: ", error));
+  filters.forEach((filter) => {
+    arr.push(renders.find((render) => render.id == filter));
+  });
 
-console.log("art loaded");
+  return arr;
+}
 
 function createArtElement(render, parent) {
   const renderContainer = document.createElement("div");

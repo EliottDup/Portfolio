@@ -1,13 +1,5 @@
-console.log("loading projects");
 const projectsContainer = document.getElementById("projects-showoff");
 const favoriteProjectContainer = document.getElementById("favorite-project");
-let showAll = false;
-
-if (projectsContainer.innerHTML == "showAll") {
-  projectsContainer.innerHTML = "";
-  showAll = true;
-}
-
 const banners = [
   { class: "wip-banner", text: "Work In Progress" },
   { class: "done-banner", text: "Done" },
@@ -15,19 +7,22 @@ const banners = [
   { class: "undecided-banner", text: "Undecided" },
 ];
 
-fetch("../json/projects.json")
-  .then((response) => response.json())
-  .then((data) => {
-    sorted = data.projects.sort((a, b) => a.placement - b.placement);
-    sorted.forEach((project, i) => {
-      if (showAll || project.show) {
-        createProjectElement(project, projectsContainer);
-      }
-    });
-  })
-  .catch((error) => console.error("Error fetching projects data: ", error));
+function loadProjects(showAll) {
+  console.log("loading projects");
+  fetch("../json/projects.json")
+    .then((response) => response.json())
+    .then((data) => {
+      sorted = data.projects.sort((a, b) => a.placement - b.placement);
+      sorted.forEach((project, i) => {
+        if (showAll || project.show) {
+          createProjectElement(project, projectsContainer);
+        }
+      });
+    })
+    .catch((error) => console.error("Error fetching projects data: ", error));
 
-console.log("loaded projects");
+  console.log("loaded projects");
+}
 
 function createProjectElement(project, parent) {
   // create main element

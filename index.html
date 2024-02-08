@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Eliott Duparc | Home</title>
+    <title>Home | Eliott Duparc</title>
     <link rel="stylesheet" href="style/style.css" />
     <link rel="icon" type="image/x-icon" href="media/icons/favicon.ico" />
   </head>
-  <body>
+  <body onload="loadProjects(false);loadArt(false);">
     <canvas id="canvas"></canvas>
     <div id="start">
       <div id="title">
@@ -32,9 +32,7 @@
         </h3>
       </div>
       <div id="projects" class="article">
-        <h1 class="title">
-          <a href="projects.html"><span class="highlight">Projects</span></a>
-        </h1>
+        <h1 class="title"><span class="highlight">Projects</span></h1>
         <h3 class="paragraph">
           During my time at the \{Metis Montessori Lyceum\}, I have worked on
           multiple projects. And also made my own projects. Check them out!:
@@ -55,6 +53,10 @@
         </h3>
         <!-- <div class="showoff featured" id="favorite-render"></div> -->
         <div class="showoff" id="art-showoff"></div>
+        <div class="page-buttons">
+          <!--TODO: fix button width-->
+          <a class="page-link" href="art.html">More art!</a>
+        </div>
       </div>
     </div>
     <!-- TODO: add email form to email contact -->

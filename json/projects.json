@@ -1,6 +1,7 @@
 {
   "projects": [
     {
+      "placement": 0,
       "id": "looper",
       "title": "Looper Inc",
       "status": 0,
@@ -10,6 +11,7 @@
       "show": true
     },
     {
+      "placement": 1,
       "id": "mazeswap",
       "title": "MAZESWAP",
       "status": 1,
@@ -27,21 +29,27 @@
       "show": true
     },
     {
+      "placement": 3,
       "id": "superchess",
       "title": "Superhot Chess",
       "status": 3,
       "description": "A while ago, I wanted to try to create a version of chess where both players submit and make their move at the same time. The game would end when the king piece was slain, not checkmated, and if two pieces walked to the same place, the higher ranking one would win or they would annihilate each other. Sadly, I stopped working on the project before I had a complete chess game. I am unsure whether I want to return to this project",
       "buttons": [],
-      "show": true
+      "show": false
     },
     {
+      "placement": 2,
       "id": "traffic",
       "title": "Traffic Lights AI",
-      "status": 0,
-      "description": "Together with a friend, we are attempting to create a \\{traffic simulation\\} that uses \\{AI\\} to control \\{traffic lights\\}.",
-      "buttons": [],
-      "show": false
+      "status": 1,
+      "description": "Together with a friend, attempted to create a \\{traffic simulation\\} that uses \\{AI\\} to control \\{traffic lights\\}. The idea was to find out wether AI is able to manage traffic lights more efficiently than the \\{Dutch Traffic System\\}, which is quite hard to do, scince the Dutch system is one of the most elaborate systems in the world. <br><br>We ended up concluding that at least in our case, AI is unable to solve our problem. You can download the source code by using the button down below.",
+      "buttons": [
+        {
+          "text": "<Source Code/>",
+          "destination": "https://github.com/Twan-Reijinga/TrafficLight-AI"
+        }
+      ],
+      "show": true
     }
-  ],
-  "favorite": "looper"
+  ]
 }

@@ -2,21 +2,22 @@ console.log("loading art");
 
 const artContainer = document.getElementById("art-showoff");
 const favoriteRenderContainer = document.getElementById("favorite-render");
+const videoFileTypes = ["mp4", "avi"];
 
-videoFileTypes = ["mp4", "avi"];
+showAll = false;
+
+if (artContainer.innerHTML == "showAll") {
+  artContainer.innerHTML = "";
+  showAll = true;
+}
 
 fetch("json/art.json")
   .then((response) => response.json())
   .then((data) => {
-    let fav = -1;
-    if (data.favorite == "none" && false) {
-      fav = getRandomInt(data.renders.length);
-    }
+    sorted = data.renders.sort((a, b) => a.placement - b.placement);
 
-    data.renders.forEach((render, index) => {
-      if (data.favorite == render.id || index == fav) {
-        createArtElement(render, favoriteRenderContainer);
-      } else {
+    sorted.forEach((render, index) => {
+      if (showAll || render.show) {
         createArtElement(render, artContainer);
       }
     });

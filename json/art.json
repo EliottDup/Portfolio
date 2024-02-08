@@ -1,41 +1,53 @@
 {
   "renders": [
     {
+      "placement": 0,
       "id": "floating_island",
       "title": "Floating Island",
       "description": "A cool \\{floating island\\} I made a while back trying to challenge myself at making a good-looking render.",
-      "filetype": "png"
+      "filetype": "png",
+      "show": true
     },
     {
+      "placement": 1,
       "id": "desert_pyramid",
       "title": "Desert Pyramid",
       "description": "A render I made a while ago, which was actually a \\{remake\\} of a 4-year old render.",
-      "filetype": "png"
+      "filetype": "png",
+      "show": true
     },
     {
+      "placement": 2,
       "id": "particles",
       "title": "Looping Particle Animation",
       "description": "I also really enjoy making \\{looping animations\\}, there is just something about seeing everything seamlessly \\{restart\\} that I really love.",
-      "filetype": "mp4"
+      "filetype": "mp4",
+      "show": true
     },
     {
-      "id": "feproject",
+      "placement": 3,
+      "id": "fe_project",
       "title": "Save the Date Event Render",
       "description": "This was made for the company \\{Fit Earth\\}, for their debut event. Fit Earth is the club/place I go \\{freerunning\\}, so I really enjoyed making this render for them.",
-      "filetype": "mp4"
+      "filetype": "mp4",
+      "show": true
     },
     {
+      "placement": 4,
       "id": "cubes",
       "title": "Isometric Cube Animation",
       "description": "I inspired this \\{animation\\} from a post that I saw online, thought it looked neat and wanted to recreate it. I also made it match the \\{site colors\\} :)",
       "filetype": "mp4",
-      "starttime": 0.75
+      "starttime": 0.75,
+      "show": true
     },
     {
+      "placement": 5,
       "id": "impossible_tri",
       "title": "Impossible Shape",
       "description": "Messing around with \\{true Isometric perspective\\} is something I will never get tired of. Making \\{penrose triangles\\} within themselves, with even more impossible shapes inside of it is just too cool.",
-      "filetype": "png"
+      "filetype": "png",
+      "show": true
     }
   ],
   "favorite": "none"

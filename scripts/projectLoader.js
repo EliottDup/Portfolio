@@ -18,14 +18,10 @@ const banners = [
 fetch("../json/projects.json")
   .then((response) => response.json())
   .then((data) => {
-    data.projects.forEach((project, i) => {
-      if (project.id == data.favorite && !showAll && false) {
-        project.title = "Featured Project: " + project.title;
-        createProjectElement(project, favoriteProjectContainer);
-      } else {
-        if (showAll || project.show) {
-          createProjectElement(project, projectsContainer);
-        }
+    sorted = data.projects.sort((a, b) => a.placement - b.placement);
+    sorted.forEach((project, i) => {
+      if (showAll || project.show) {
+        createProjectElement(project, projectsContainer);
       }
     });
   })

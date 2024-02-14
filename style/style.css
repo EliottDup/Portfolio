@@ -195,7 +195,7 @@ a {
   column-gap: 1vw;
 }
 
-.art-column{
+.art-column {
   flex-grow: 1;
   row-gap: 1vw;
   display: flex;
@@ -203,19 +203,20 @@ a {
   /* height: 30vh; */
 }
 
-.art-item{
+.art-item {
   padding: 3%;
-  
+
   background-color: hsla(271, 76%, 30%, 0.15);
   border-radius: 15px;
   padding: 3%;
-  
+
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
-  cursor:pointer;
+  cursor: pointer;
 }
 
-.art-item > img, .art-item > video{
+.art-item > img,
+.art-item > video {
   width: 100%;
 }
 
@@ -409,6 +410,22 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* transition: all 10s; */
+}
+
+#art-modal.modal-dark {
+  /* background-color: #0000007f; */
+  animation-name: darken;
+  animation-duration: 0.6s;
+}
+
+@keyframes darken {
+  from {
+    background-color: #00000000;
+  }
+  to {
+    background-color: #0000007f;
+  }
 }
 
 #modal-content {
@@ -417,6 +434,10 @@ a {
 }
 
 @keyframes zoom {
-  from {transform:scale(0)}
-  to {transform:scale(1)}
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
 }

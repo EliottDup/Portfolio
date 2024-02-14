@@ -9,9 +9,11 @@ modalBackground.onclick = function () {
 };
 
 function loadModal(render) {
+  modalBackground.classList.remove("modal-dark");
   console.log("loading", render.id);
   modalBackground.innerHTML = "";
   modalBackground.style.display = displaytype;
+  modalBackground.classList.add("modal-dark");
   modalBackground.appendChild(getArtNode(render));
   highlight();
 }

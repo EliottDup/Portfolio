@@ -8,7 +8,11 @@ function loadArt() {
       sorted = data.renders.sort((a, b) => a.placement - b.placement);
 
       sorted.forEach((render) => {
-        var containerId = render.col || getEmptiestElementPos(artContainers);
+        var containerId = render.col;
+        if (render.col == undefined) {
+          containerId = getEmptiestElementPos(artContainers);
+        }
+        console.log(render.col);
         createArtElement(render, containerId);
       });
     });

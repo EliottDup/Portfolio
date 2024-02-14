@@ -97,6 +97,7 @@ function getArtWork(render) {
     imageContainer.appendChild(video);
   } else {
     const image = document.createElement("img");
+    image.style.maxHeight = "50vh";
     image.src = renderUrl;
     image.classList.add("project-image");
 

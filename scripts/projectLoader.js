@@ -31,7 +31,7 @@ function createProjectElement(project, parent, banners) {
 
   const titleElement = document.createElement("h1");
   titleElement.classList.add("highlight");
-  titleElement.textContent = project.title;
+  titleElement.textContent = project.title || "Project Title";
 
   titleContainer.appendChild(titleElement);
   projectContainer.appendChild(titleContainer);
@@ -53,13 +53,13 @@ function createProjectElement(project, parent, banners) {
   // add description
   const descriptionElement = document.createElement("h3");
   descriptionElement.classList.add("paragraph");
-  descriptionElement.innerHTML = project.description;
+  descriptionElement.innerHTML = project.description || "project destruction";
 
   projectContainer.appendChild(descriptionElement);
   highlight(descriptionElement);
 
   // add buttons if necessary
-  if (project.buttons.length != 0) {
+  if ((project.buttons || []).length != 0) {
     // create button container
     const buttonsContainer = document.createElement("div");
     buttonsContainer.classList.add("project-buttons");

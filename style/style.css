@@ -23,6 +23,8 @@ body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 
+  overflow-x: hidden;
+
   background-color: black;
   color: var(--textColor);
   /* font-family: "Chivo Mono", monospace; */

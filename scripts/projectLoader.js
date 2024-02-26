@@ -1,21 +1,17 @@
 const projectsContainer = document.getElementById("projects-showoff");
 const favoriteProjectContainer = document.getElementById("favorite-project");
-const banners = [
-  { class: "wip-banner", text: "Work In Progress" },
-  { class: "done-banner", text: "Done" },
-  { class: "abandoned-banner", text: "Archived" },
-  { class: "undecided-banner", text: "Undecided" },
-];
 
 function loadProjects(showAll) {
   console.log("loading projects");
   fetch("../json/projects.json")
     .then((response) => response.json())
     .then((data) => {
-      sorted = data.projects.sort((a, b) => a.placement - b.placement);
+      sorted = data.projects.sort(
+        (a, b) => (a.placement || 10000) - (b.placement || 10000)
+      );
       sorted.forEach((project, i) => {
         if (showAll || project.show) {
-          createProjectElement(project, projectsContainer);
+          createProjectElement(project, projectsContainer, data.statusses);
         }
       });
     })
@@ -24,7 +20,7 @@ function loadProjects(showAll) {
   console.log("loaded projects");
 }
 
-function createProjectElement(project, parent) {
+function createProjectElement(project, parent, banners) {
   // create main element
   const projectContainer = document.createElement("div");
   projectContainer.classList.add("project");
@@ -40,17 +36,19 @@ function createProjectElement(project, parent) {
   titleContainer.appendChild(titleElement);
   projectContainer.appendChild(titleContainer);
 
-  // add images
-  const imageContainer = document.createElement("a");
-  imageContainer.classList.add("image-container");
+  if (UrlExists("media/projects/" + project.id + ".png")) {
+    // add images
+    const imageContainer = document.createElement("a");
+    imageContainer.classList.add("image-container");
 
-  const projectImage = document.createElement("img");
-  projectImage.classList.add("project-image");
-  projectImage.src = "media/projects/" + project.id + ".png";
+    const projectImage = document.createElement("img");
+    projectImage.classList.add("project-image");
+    projectImage.src = "media/projects/" + project.id + ".png";
 
-  imageContainer.appendChild(projectImage);
+    imageContainer.appendChild(projectImage);
 
-  projectContainer.appendChild(imageContainer);
+    projectContainer.appendChild(imageContainer);
+  }
 
   // add description
   const descriptionElement = document.createElement("h3");
@@ -91,4 +89,11 @@ function createProjectElement(project, parent) {
   projectContainer.appendChild(statusBanner);
 
   parent.appendChild(projectContainer);
+}
+
+function UrlExists(url) {
+  var http = new XMLHttpRequest();
+  http.open("HEAD", url, false);
+  http.send();
+  return http.status != 404;
 }

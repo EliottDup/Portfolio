@@ -1,4 +1,9 @@
 {
+  "statusses": [
+    { "class": "wip-banner", "text": "Work In Progress" },
+    { "class": "done-banner", "text": "Done" },
+    { "class": "abandoned-banner", "text": "Archived" }
+  ],
   "projects": [
     {
       "placement": 0,
@@ -32,8 +37,8 @@
       "placement": 3,
       "id": "superchess",
       "title": "Superhot Chess",
-      "status": 3,
-      "description": "A while ago, I wanted to try to create a version of chess where both players submit and make their move at the same time. The game would end when the king piece was slain, not checkmated, and if two pieces walked to the same place, the higher ranking one would win or they would annihilate each other. Sadly, I stopped working on the project before I had a complete chess game. I am unsure whether I want to return to this project",
+      "status": 2,
+      "description": "A while ago, I wanted to try to create a version of chess where both players submit and make their move at the same time. The game would end when the king piece was slain, not checkmated, and if two pieces walked to the same place, the higher ranking one would win or they would annihilate each other. Sadly, I stopped working on the project before I had a complete chess game. I am unsure whether I want to return to this project.",
       "buttons": [],
       "show": false
     },
@@ -50,6 +55,14 @@
         }
       ],
       "show": true
+    },
+    {
+      "id": "vr",
+      "title": "VR Game Project",
+      "status": 0,
+      "description": "Lately, I've been trying to learn VR developement in Unity. However I am unsure wether I want to make a project with it later.",
+      "buttons": [],
+      "show": false
     }
   ]
 }

@@ -1,7 +1,5 @@
 function highlight() {
-  console.log("running highlighter");
   const paragraphs = document.getElementsByClassName("paragraph");
-  console.log(paragraphs);
 
   if (paragraphs) {
     for (let i = 0; i < paragraphs.length; i++) {
@@ -11,7 +9,6 @@ function highlight() {
 
   function highlight(p) {
     let textContent = p.textContent;
-    // console.log(textContent);
 
     let highlightedWords = textContent.match(/\\{([^\\}]+)\\}/g);
     if (highlightedWords) {

@@ -42,7 +42,7 @@ function createArtElement(render, parent) {
   // add title element
   const titleElement = document.createElement("h1");
   titleElement.classList.add("highlight");
-  titleElement.textContent = render.title;
+  titleElement.textContent = render.title || "Render Title";
 
   titleContainer.appendChild(titleElement);
   renderContainer.appendChild(titleContainer);
@@ -53,7 +53,7 @@ function createArtElement(render, parent) {
   // add description
   const descriptionElement = document.createElement("h4");
   descriptionElement.classList.add("paragraph");
-  descriptionElement.innerHTML = render.description;
+  descriptionElement.innerHTML = render.description || "Render Description";
 
   renderContainer.appendChild(descriptionElement);
 

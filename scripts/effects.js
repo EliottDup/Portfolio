@@ -68,12 +68,12 @@ async function Type(
   for (let i = 0; i < wordTotype.length + 1; i++) {
     let innerHTML = wordTotype
       .slice(0, i)
-      .replace(/:/g, "")
+      .replace(/ඞ/g, "")
       .replace(/{/g, '<span class="highlight">')
       .replace(/}/g, "</span>");
 
     htmlthing.innerHTML = prefix + innerHTML;
-    if (wordTotype[i] == ":") {
+    if (wordTotype[i] == "ඞ") {
       await Sleep(spaceDelay);
     }
     await Sleep(speed);
@@ -82,7 +82,7 @@ async function Type(
   htmlthing.innerHTML =
     prefix +
     wordTotype
-      .replace(/:/g, "")
+      .replace(/ඞ/g, "")
       .replace(/{/g, '<span class="highlight">')
       .replace(/}/g, "</span>") +
     suffix;
@@ -95,7 +95,7 @@ async function StartAnimation() {
   await Type(row2, abtElement, ">", "", 30);
   await Sleep(1000);
   await Type(
-    " What are you waiting for? :Go check out my work! ",
+    " What are you waiting for? ඞGo check out my work! ",
     goDown,
     '<span class="purple">V</span>',
     '<span class="purple">V</span>',

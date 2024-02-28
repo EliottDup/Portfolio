@@ -5,24 +5,34 @@
     <link rel="stylesheet" href="style/style.css" />
     <link rel="icon" type="image/x-icon" href="media/icons/favicon.ico" />
   </head>
-  <body onload="loadArt();runHighlighter();">
+  <body onload="UpdateAge();runHighlighter();">
     <canvas id="canvas">voronoi</canvas>
     <div id="backbutton">
       <a href="../"><< HOME</a>
     </div>
 
     <div id="art" class="article">
-      <h1 class="title"><span class="highlight">Art & Animation</span></h1>
-      <!-- <div class="showoff" id="art-showoff"></div> -->
-
-      <div class="art-showoff">
-        <div class="art-column" id="artCol1"></div>
-        <div class="art-column" id="artCol2"></div>
-        <div class="art-column" id="artCol3"></div>
-      </div>
+      <h1 class="title"><span class="highlight">About me</span></h1>
+      <h3 class="paragraph">
+        My name is Eliott Duparc and I am now
+        <span class="highlight age">4</span> years old. <br />
+        I was born in France and moved to the Netherlands when I was \{9\}. I
+        currently study at the \{Metis Montessori Lyceum\} and plan to study
+        \{Computer Science\} or something of the like later on. I started to
+        learn programming at the \{Metis Montessori Lyceum\}, in the
+        \{Coderclass\}, a special class more oriented towards programming.
+        Shortly after moving to the \{Netherlands\}, I also started
+        \{Freerunning\}. <br />
+        Some of My favorite games include:
+        <ul>
+          <li><span class="highlight">ULTRAKILL</span></li>
+          <li><span class="highlight">No Man's Sky</span></li>
+          <li><span class="highlight">Subnautica</span></li>
+          <li><span class="highlight">Voices of the Void</span></li>
+          <li><span class="highlight">Minecraft</span></li>
+        </ul>
+      </h3>
     </div>
-
-    <div id="art-modal"></div>
 
     <div id="contact">
       <div>Wanna get in touch? You can find me here:</div>
@@ -50,10 +60,9 @@
     <div id="footer">
       <p onclick="voronoi = !voronoi" id="version"></p>
     </div>
-    <script defer src="scripts/modalLoader.js"></script>
     <script defer src="scripts/background.js"></script>
+    <script defer src="scripts/effects.js"></script>
     <script defer src="scripts/highlighter.js"></script>
-    <script defer src="scripts/artLoader.js"></script>
     <script defer src="scripts/versionUpdater.js"></script>
   </body>
 </html>

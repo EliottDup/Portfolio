@@ -116,6 +116,3 @@ function UpdateAge() {
     age[i].innerHTML = myAge;
   }
 }
-
-StartAnimation();
-UpdateAge();

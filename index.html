@@ -5,7 +5,9 @@
     <link rel="stylesheet" href="style/style.css" />
     <link rel="icon" type="image/x-icon" href="media/icons/favicon.ico" />
   </head>
-  <body onload="loadProjects(false);loadArt(false);runHighlighter();">
+  <body
+    onload="StartAnimation();UpdateAge();loadProjects(false);loadArt(false);runHighlighter();"
+  >
     <canvas id="canvas"></canvas>
     <div id="start">
       <div id="title">
@@ -30,6 +32,9 @@
           Shortly after moving to the \{Netherlands\}, I also started
           \{Freerunning\}.
         </h3>
+        <div class="page-buttons">
+          <a class="page-link" href="about.html">More about me!</a>
+        </div>
       </div>
       <div id="projects" class="article">
         <h1 class="title"><span class="highlight">Projects</span></h1>
@@ -40,7 +45,6 @@
         <!-- <div class="showoff featured" id="favorite-project"></div> -->
         <div class="showoff" id="projects-showoff"></div>
         <div class="page-buttons">
-          <!--TODO: fix button width-->
           <a class="page-link" href="projects.html">More projects!</a>
         </div>
       </div>
@@ -54,7 +58,6 @@
         <!-- <div class="showoff featured" id="favorite-render"></div> -->
         <div class="showoff" id="art-showoff"></div>
         <div class="page-buttons">
-          <!--TODO: fix button width-->
           <a class="page-link" href="art.html">More art!</a>
         </div>
       </div>

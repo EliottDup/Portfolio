@@ -61,6 +61,14 @@
       "description": "Lately, I've been trying to learn \\{VR developement\\} in Unity. However I am unsure wether I want to make a project with it later. I do have some \\{ideas\\} for what I want to make with it, but these are still deep in the ideas drawer.",
       "buttons": [],
       "show": false
+    },
+    {
+      "id": "marching_cubes",
+      "title": "Marching Cubes",
+      "status": 0,
+      "description": "Implementing funny \\{algorithms\\} into Unity is quite fun. This one however is quite a challenge, especially on a greater scale, when performance is very important. I am currently working on this to possibly use it together with my \\{VR Project\\}, however, I still have a long ways to go.",
+      "buttons": [],
+      "show": false
     }
   ]
 }

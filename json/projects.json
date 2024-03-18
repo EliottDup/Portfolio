@@ -74,6 +74,14 @@
         }
       ],
       "show": true
+    },
+    {
+      "id": "marching_cubes",
+      "title": "Marching Cubes",
+      "status": 0,
+      "description": "Implementing funny \\{algorithms\\} into Unity is quite fun. This one however is quite a challenge, especially on a greater scale, when performance is very important. I am currently working on this to possibly use it together with my \\{VR Project\\}, however, I still have a long ways to go.",
+      "buttons": [],
+      "show": false
     }
   ]
 }

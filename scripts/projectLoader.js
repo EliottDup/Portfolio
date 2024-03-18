@@ -53,7 +53,7 @@ function createProjectElement(project, parent, banners) {
   // add description
   const descriptionElement = document.createElement("h3");
   descriptionElement.classList.add("paragraph");
-  descriptionElement.innerHTML = project.description || "project destruction";
+  descriptionElement.innerHTML = project.description || "project description";
 
   projectContainer.appendChild(descriptionElement);
   highlight(descriptionElement);

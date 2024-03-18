@@ -9,7 +9,12 @@
   text-decoration: underline var(--textColor) 0.1em;
 }
 
-body::-webkit-scrollbar {
+* {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+*::-webkit-scrollbar {
   display: none;
 }
 
@@ -20,8 +25,6 @@ body::-webkit-scrollbar {
 body {
   display: flex;
   flex-direction: column;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
 
   overflow-x: hidden;
 

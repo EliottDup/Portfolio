@@ -66,11 +66,11 @@
       "id": "portfolio",
       "title": "Portfolio Website",
       "status": 0,
-      "description": "I've had a lot of fun making this portfolio website and the parts it's made up of, like the meshing algorithm used in the background, the automatic project and art loaders. I know it could be done better, and might remake it in the future.",
+      "description": "I've had a lot of fun making this \\{portfolio\\} website and the parts it's made up of, like the \\{Bowyer-Watson\\} algorithm used in the background, the automatic project and art loaders. I know it could be done better, and might remake it in the future.",
       "buttons": [
         {
           "text": "<Source Code/>",
-          "destination": ""
+          "destination": "https://github.com/EliottDup/Portfolio"
         }
       ],
       "show": true
@@ -79,8 +79,21 @@
       "id": "marching_cubes",
       "title": "Marching Cubes",
       "status": 0,
-      "description": "Implementing funny \\{algorithms\\} into Unity is quite fun. This one however is quite a challenge, especially on a greater scale, when performance is very important. I am currently working on this to possibly use it together with my \\{VR Project\\}, however, I still have a long ways to go.",
+      "description": "Implementing interesting \\{algorithms\\} into Unity is quite fun. This one however is quite a challenge, especially on a greater scale, when performance is very important. I am currently working on this to possibly use it together with my \\{VR Project\\}, however, I still have a long ways to go.",
       "buttons": [],
+      "show": false
+    },
+    {
+      "id": "soundboard",
+      "title": "Launchpad Soundboard Application",
+      "status": 0,
+      "description": "This is a program I've made for my father, who wanted a simple way to play sounds and music when playing \\{role playing games\\}. I decided to use a \\{launchpad\\}, which is a midi controller with a bunch of buttons. I also decided to make it all in \\{C++\\} without any other applications. It didn't end up being the most beautiful code, and it only has support for windows, but I am quite happy with this little application that I made.",
+      "buttons": [
+        {
+          "text": "<Source Code/>",
+          "destination": ""
+        }
+      ],
       "show": false
     }
   ]

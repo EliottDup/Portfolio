@@ -426,7 +426,7 @@ a {
 #art-modal.modal-dark {
   /* background-color: #0000007f; */
   animation-name: darken;
-  animation-duration: 0.6s;
+  animation-duration: 0.5s;
 }
 
 @keyframes darken {
@@ -440,14 +440,14 @@ a {
 
 #modal-content {
   animation-name: zoom;
-  animation-duration: 0.6s;
+  animation-duration: 1s;
 }
 
 @keyframes zoom {
   from {
-    transform: scale(0);
+    transform: scale(0) rotate3D(1, 1, 1, 0);
   }
   to {
-    transform: scale(1);
+    transform: scale(1) rotate3D(1, 1, 1, 360deg);
   }
 }

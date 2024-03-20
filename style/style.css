@@ -357,11 +357,11 @@ a {
 }
 
 .abandoned-banner {
-  background-color: red;
+  background-color: #ff0000;
 }
 
 .undecided-banner {
-  background-color: orange;
+  background-color: #ffa500;
 }
 
 .hover-banner {

@@ -41,7 +41,19 @@ class Console {
         break;
       }
       case "READ": {
-        this.Read(args[0]);
+        if (args.length > 1) {
+          this.Read(args[0]);
+          break;
+        }
+        this.Log("ERROR: TOO MANY ARGUMENTS");
+        break;
+      }
+      case "LIST": {
+        if (args.length == 0) {
+          this.List();
+          break;
+        }
+        this.log("ERROR: TOO M");
         break;
       }
       default: {
@@ -54,7 +66,9 @@ class Console {
   }
 
   Read(adress) {
-    let file1 = this.filesystem.GetFromAdress(fs.currentLocation + adress);
+    let file1 = this.filesystem.GetFromAdress(
+      fs.currentLocation + "/" + adress
+    );
     if (file1 == null) {
       console.log("null");
       return;
@@ -65,17 +79,26 @@ class Console {
   Log(string) {
     this.consoleBacklogNode.innerHTML += "<br>" + string + "<br><br>";
   }
+
+  List(args) {}
 }
 
 let file1 = new ConsoleFile(
   "file01.log",
   "2024-03-21",
   "7:18",
+  "testing lets hope this work2s"
+);
+
+let file2 = new ConsoleFile(
+  "filetest.log",
+  "2024-03-21",
+  "7:18",
   "testing lets hope this works"
 );
 
 let folder1 = new ConsoleFolder("folder1", "2024-03-21", "7:18", [file1], []);
-let folder2 = new ConsoleFolder("folder2", "2024-03-21", "7:29", [], []);
+let folder2 = new ConsoleFolder("folder2", "2024-03-21", "7:29", [file2], []);
 let rootFolder = new ConsoleFolder(
   "root",
   "2024-03-21",

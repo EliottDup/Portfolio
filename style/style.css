@@ -459,7 +459,7 @@ a {
 }
 
 #console {
-  font-family: "Chivo Mono", monospace;
+  font-family: monospace;
   color: #9a9a9a;
   position: relative;
   width: 50vw;
@@ -504,10 +504,15 @@ a {
 
 #consoleUserInput {
   outline: none;
+
   min-width: 1ex;
 }
 
 #consoleText {
+  white-space: pre;
+}
+
+.consoleWriting{
 }
 
 .consoleWriting::selection {

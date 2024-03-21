@@ -23,7 +23,7 @@ class Console {
     if (userInput == "") return;
     this.commandHistory.push(userInput);
 
-    this.consoleBacklogNode.innerHTML += userInput;
+    this.Log(" " + userInput + "<br>");
     let splitInput = userInput.split(" ");
 
     let args = splitInput.slice(1);
@@ -41,11 +41,11 @@ class Console {
         break;
       }
       case "READ": {
-        if (args.length > 1) {
+        if (args.length == 1) {
           this.Read(args[0]);
           break;
         }
-        this.Log("ERROR: TOO MANY ARGUMENTS");
+        this.Log("ERROR: ARGUMENT COUNT INCORRECT<br><br>");
         break;
       }
       case "LIST": {
@@ -53,60 +53,92 @@ class Console {
           this.List();
           break;
         }
-        this.log("ERROR: TOO MANY ARGUMENTS");
+        this.log("ERROR: TOO MANY ARGUMENTS<br><br>");
+        break;
+      }
+      case "COMMANDS": {
+        this.Log("LIST, READ, CD, COMMANDS, CLS<br><br>");
+        break;
+      }
+      case "CD": {
+        if (args.length == 1) {
+          fs.Move(args[0]);
+          this.Log("<br>");
+          break;
+        }
+        this.Log("ERROR: ARGUMENT COUNT INCORRECT<br><br>");
         break;
       }
       default: {
-        this.Log("ERROR: '" + command + "' IS NOT A RECOGNISED COMMAND");
+        this.Log(
+          "ERROR: '" + command + "' IS NOT A RECOGNISED COMMAND<br><br>"
+        );
         break;
       }
     }
 
-    this.consoleBacklogNode.innerHTML += "$ " + fs.currentLocation + " > ";
+    this.Log(fs.currentadress + ">");
+    console.log(fs.currentadress);
   }
 
   Read(adress) {
-    let file1 = this.filesystem.GetFromAdress(
-      fs.currentLocation + "/" + adress
-    );
+    let file1 = this.filesystem.GetFromAdress([...fs.currentLocation, adress]);
     if (file1 == null) {
       console.log("null");
       return;
     }
-    this.Log(file1.data);
+    this.Log(file1.data + "<br><br>");
   }
 
-  Log(string) {
-    this.consoleBacklogNode.innerHTML += "<br>" + string + "<br><br>";
+  Log(string, toupper = false) {
+    if (toupper) {
+      this.consoleBacklogNode.innerHTML += string.toUpperCase();
+      return;
+    }
+    this.consoleBacklogNode.innerHTML += string;
   }
 
-  List(args) {}
+  List(args) {
+    let list = fs.GetList();
+    this.Log(list + "<br>", true);
+  }
 }
+
+//test population
 
 let file1 = new ConsoleFile(
   "file01.log",
   "2024-03-21",
-  "7:18",
-  "testing lets hope this work2s"
+  "07:18",
+  "this is file01!! yay"
 );
 
 let file2 = new ConsoleFile(
-  "filetest.log",
+  "FILE_3ETAS.log",
   "2024-03-21",
-  "7:18",
-  "testing lets hope this works"
+  "08:34",
+  "Wow, I am reading this file now!!"
 );
 
-let folder1 = new ConsoleFolder("folder1", "2024-03-21", "7:18", [file1], []);
-let folder2 = new ConsoleFolder("folder2", "2024-03-21", "7:29", [file2], []);
+let file3 = new ConsoleFile(
+  "FILE3.log",
+  "2024-03-21",
+  "15:19",
+  "hallo daar, hoe is het?"
+);
+
+let folder1 = new ConsoleFolder("folder1", "2024-03-21", "20:30", [file2], []);
+let folder2 = new ConsoleFolder("folder2", "2024-03-21", "07:29", [file3], []);
 let rootFolder = new ConsoleFolder(
   "root",
   "2024-03-21",
-  "7:20",
-  [],
+  "07:20",
+  [file1],
   [folder1, folder2]
 );
 let fs = new ConsoleFileSystem([rootFolder]);
+
+//end test population
 
 let CMD = new Console(
   document.getElementById("consoleUserInput"),

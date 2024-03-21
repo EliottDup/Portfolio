@@ -86,7 +86,8 @@ class ConsoleFolder extends FileData {
   Find(adress) {
     if (adress.length == 0) {
       return this;
-    } else if (adress.length == 1 && adress[0].includes(".")) {
+    }
+    if (adress.length == 1 && adress[0].includes(".")) {
       for (let i = 0; i < this.files.length; i++) {
         if (this.files[i].name.toUpperCase() == adress[0].toUpperCase()) {
           return this.files[i];
@@ -114,6 +115,8 @@ class ConsoleFileSystem {
 
   GetFromAdress(adress) {
     let splitAdress = adress;
+    splitAdress = this.RemoveParentLinks(splitAdress);
+    console.log(splitAdress);
     for (let i = 0; i < this.drives.length; i++) {
       if (this.drives[i].name == splitAdress[0]) {
         return this.drives[i].Find(splitAdress.slice(1));
@@ -122,13 +125,24 @@ class ConsoleFileSystem {
     return splitAdress[0];
   }
 
+  RemoveParentLinks(adress) {
+    let changedadress = [...adress];
+    const hasParentLinks = (element) => element == "..";
+    let i = changedadress.findIndex(hasParentLinks);
+    while (i > 1) {
+      changedadress.splice(i - 1, 2);
+      i = changedadress.findIndex(hasParentLinks);
+    }
+    return changedadress;
+  }
+
   GetList() {
     return this.GetFromAdress(this.currentLocation).List();
   }
 
   Move(input) {
     let destination = input.split("/");
-    for (let i = 0; i < input.length; i++) {
+    for (let i = 0; i < destination.length; i++) {
       if (destination[i] == ".." && this.currentLocation.length != 1) {
         this.currentLocation = this.currentLocation.slice(0, -1);
         continue;
@@ -137,11 +151,28 @@ class ConsoleFileSystem {
       let currentFolder = this.GetFromAdress(this.currentLocation);
 
       for (let j = 0; j < currentFolder.folders.length; j++) {
-        if (currentFolder.folders[j].name == destination[i]) {
-          this.currentLocation.push(destination[i]);
+        if (
+          currentFolder.folders[j].name.toUpperCase() ==
+          destination[i].toUpperCase()
+        ) {
+          this.currentLocation.push(currentFolder.folders[j].name);
           break;
         }
       }
+    }
+  }
+
+  SwitchDrive(dest) {
+    for (let i = 0; i < this.drives.length; i++) {
+      if (this.drives[i].name.toUpperCase() == dest.toUpperCase()) {
+        this.currentLocation = [this.drives[i].name];
+        return (
+          'SUCCESSFULLY SWITCHED TO "' +
+          this.drives[i].name.toUpperCase() +
+          '" DRIVE'
+        );
+      }
+      return 'ERROR: NO DRIVE NAMED "' + dest.toUpperCase() + '"';
     }
   }
 

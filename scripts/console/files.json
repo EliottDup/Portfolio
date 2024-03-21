@@ -1,0 +1,41 @@
+{
+    "drives":[
+        {
+            "name": "Root",
+            "date": "UNKNOWN   ",
+            "time": "LOST ",
+            "folders":[
+                {
+                    "name": "Projects",
+                    "date": "XXXX-XX-XX",
+                    "time": "XX:XX",
+                    "folders": [
+                        {
+                            "name": "project_SFS",
+                            "date": "2024-02-18",
+                            "time": "XX:XX",
+                            "folder": [],
+                            "files": [
+                                {
+                                    "name": "SFS.info",
+                                    "date": "2024-03-21",
+                                    "time": "17:30",
+                                    "data": "This project is actually a quite sizeable one, where the idea is to make a VR spaceship flight simulator, I have not made much of a start yet, but the idea at the moment is simply to get a spceship into space and fly it around in VR. But I am very new to VR gamedev and expect this to take a while, partly because I have other things that I focus more onto at the moment."
+                                }
+                            ]
+                        }
+                    ],
+                    "files": []
+                }
+            ],
+            "files":[
+                {
+                    "name": "greetings.log",
+                    "date": "2024-03-21",
+                    "time": "17:13",
+                    "data": "Hey there! You've found the terminal console thingy, in here I want to log some projects that are either only yet ideas or too early/small to put into the main page (and maybe some other things who knows?), so explore away in this simulated terminal-interface-ish thingy, and enjoy!"
+                }
+            ]
+        }
+    ]
+}

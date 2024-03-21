@@ -53,7 +53,7 @@ class Console {
           this.List();
           break;
         }
-        this.log("ERROR: TOO M");
+        this.log("ERROR: TOO MANY ARGUMENTS");
         break;
       }
       default: {

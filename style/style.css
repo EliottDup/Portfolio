@@ -505,15 +505,12 @@ a {
 #consoleUserInput {
   outline: none;
 
-  min-width: 1ex;
+  min-width: 20px;
 }
 
 #consoleText {
   white-space: pre-wrap;
   word-break: break-all;
-}
-
-.consoleWriting{
 }
 
 .consoleWriting::selection {
@@ -522,10 +519,6 @@ a {
 }
 br::selection {
   display: none !important;
-}
-
-#consoleInput:focus {
-  border: #000000;
 }
 
 #tmpSize {

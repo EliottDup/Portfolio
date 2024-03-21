@@ -1,9 +1,16 @@
 class Console {
-  userInputNode = document.getElementById("consoleUserInput");
-  consoleBacklogNode = document.getElementById("consoleText");
+  userInputNode;
+  consoleBacklogNode;
   commandHistory = [];
   historyIndex = -1;
   lastInput;
+  filesystem;
+
+  constructor(userInput, consoleText, filesystem) {
+    this.userInputNode = userInput;
+    this.consoleBacklogNode = consoleText;
+    this.filesystem = filesystem;
+  }
 
   Init() {
     this.userInputNode = document.getElementById("consoleUserInput");
@@ -11,6 +18,7 @@ class Console {
   }
 
   Execute() {
+    this.Read("aa");
     let userInput = this.userInputNode.innerHTML;
     if (userInput == "") return;
     this.commandHistory.push(userInput);
@@ -20,8 +28,6 @@ class Console {
 
     let args = splitInput.slice(1);
     let command = splitInput[0].toUpperCase();
-    console.log(args);
-    console.log(command);
 
     this.userInputNode.innerHTML = "";
 
@@ -34,23 +40,57 @@ class Console {
         this.consoleBacklogNode.innerHTML = "";
         break;
       }
+      case "READ": {
+        this.Read(args[0]);
+        break;
+      }
       default: {
         this.Log("ERROR: '" + command + "' IS NOT A RECOGNISED COMMAND");
         break;
       }
     }
 
-    this.consoleBacklogNode.innerHTML += "$ root > ";
+    this.consoleBacklogNode.innerHTML += "$ " + fs.currentLocation + " > ";
+  }
+
+  Read(adress) {
+    let file1 = this.filesystem.GetFromAdress(fs.currentLocation + adress);
+    if (file1 == null) {
+      console.log("null");
+      return;
+    }
+    this.Log(file1.data);
   }
 
   Log(string) {
     this.consoleBacklogNode.innerHTML += "<br>" + string + "<br><br>";
-    console.log(this.consoleBacklogNode.innerHTML);
   }
 }
 
-let CMD = new Console();
-CMD.Init();
+let file1 = new ConsoleFile(
+  "file01.log",
+  "2024-03-21",
+  "7:18",
+  "testing lets hope this works"
+);
+
+let folder1 = new ConsoleFolder("folder1", "2024-03-21", "7:18", [file1], []);
+let folder2 = new ConsoleFolder("folder2", "2024-03-21", "7:29", [], []);
+let rootFolder = new ConsoleFolder(
+  "root",
+  "2024-03-21",
+  "7:20",
+  [],
+  [folder1, folder2]
+);
+let fs = new ConsoleFileSystem([rootFolder]);
+
+let CMD = new Console(
+  document.getElementById("consoleUserInput"),
+  document.getElementById("consoleText"),
+  fs
+);
+// CMD.Init();
 
 document.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {

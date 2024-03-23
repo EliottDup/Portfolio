@@ -452,24 +452,27 @@ a {
   }
 }
 
-#consoleHolder {
+#terminalHolder {
   width: 100%;
   height: 100%;
   position: fixed;
 }
 
-#console {
+#terminal {
+  z-index: 1000;
+  display: none;
   font-family: monospace;
   color: #9a9a9a;
-  position: relative;
-  width: 50vw;
-  height: 50vh;
+  position: fixed;
+  width: 40vw;
+  height: 20vw;
   top: 25vh;
   left: 25vw;
 
   border-radius: 0.2vw;
   box-shadow: 0 0 10px #aaa;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
 
   min-width: 10vw;
   min-height: 10vh;
@@ -477,7 +480,11 @@ a {
   resize: both;
 }
 
-#consoleheader {
+#terminalheader {
+  z-index: 1;
+  position:relative;
+  top: 0;
+  left: 0;
   background-color: #3a3a3a;
   width: 100%;
   text-align: center;
@@ -487,33 +494,34 @@ a {
   user-select: none;
 }
 
-#consoleBody {
+#terminalBody {
   position: absolute;
   bottom: 0;
   right: 0;
   padding: 5px;
   width: calc(100% - 10px);
-  height: calc(100% - 3ex - 10px);
+  height: calc(100% - 3ex - 0.4vw);
 
   border-radius: 0.2vw;
 
   background-color: #000000;
   word-break: break-all;
   overflow-y: scroll;
+  align-items: end;
 }
 
-#consoleUserInput {
-  outline: none;
 
+#terminalUserInput {
+  outline: none;
   min-width: 20px;
 }
 
-#consoleText {
+#terminalText {
   white-space: pre-wrap;
   word-break: break-all;
 }
 
-.consoleWriting::selection {
+.terminalWriting::selection {
   background-color: #999;
   color: #000;
 }
@@ -524,4 +532,56 @@ br::selection {
 #tmpSize {
   width: 100vw;
   height: 200vh;
+}
+
+#terminalClose{
+  z-index: 1;
+  background-color: #ff0000d9;
+  color: #000;
+  border-radius: 100%;
+  height:2.5ex;
+  width: 2.5ex;
+  position: absolute;
+  top: 0.25ex;
+  right: 0.25ex;
+  text-align: center;
+  cursor: pointer;
+}
+
+
+.terminalOpenAnim{
+  animation-name: TerminalOpen;
+  animation-duration: 1s;
+}
+
+.terminalCloseAnim{
+  animation-direction: reverse;
+  animation-name: TerminalOpen;
+  animation-duration: 1s;
+}
+
+@keyframes TerminalOpen {
+  0% {
+    display: none;
+    transform: translate(20vw, 0);
+    height: 3ex;
+    width: 0;
+    
+    min-width: 0vw;
+    min-height: 0vh;
+  }
+  60% {
+    transform: translate(0, 0);
+
+    width: 40vw;
+    height: 3ex;
+    min-width: 0vw;
+    min-height: 0vh;
+  }
+  100% {
+    display: block;
+    height: 20vw;
+    min-width: 10vw;
+    min-height: 10vh;
+  }
 }

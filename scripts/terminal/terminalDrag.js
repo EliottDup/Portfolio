@@ -1,4 +1,4 @@
-let draggable = document.getElementById("console");
+let draggable = document.getElementById("terminal");
 dragElement(draggable);
 
 function dragElement(elmnt) {

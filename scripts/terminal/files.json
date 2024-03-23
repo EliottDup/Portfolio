@@ -2,12 +2,12 @@
     "drives":[
         {
             "name": "Root",
-            "date": "UNKNOWN   ",
-            "time": "LOST ",
+            "date": "XXXX-XX-XX",
+            "time": "XX:XX",
             "folders":[
                 {
                     "name": "Projects",
-                    "date": "XXXX-XX-XX",
+                    "date": "2024-XX-XX",
                     "time": "XX:XX",
                     "folders": [
                         {
@@ -34,6 +34,12 @@
                     "date": "2024-03-21",
                     "time": "17:13",
                     "data": "Hey there! You've found the terminal console thingy, in here I want to log some projects that are either only yet ideas or too early/small to put into the main page (and maybe some other things who knows?), so explore away in this simulated terminal-interface-ish thingy, and enjoy!"
+                },
+                {
+                    "name": "extras.lst",
+                    "date": "XXXX-XX-XX",
+                    "time": "XX:XX",
+                    "data": "DRIVES:<BR>  [ACCESS DENIED]"
                 }
             ]
         }

@@ -1,17 +1,24 @@
-class Console {
+class Terminal {
   userInputNode;
-  consoleBacklogNode;
-  consoleTitle;
+  terminalBacklogNode;
+  terminalTitle;
   commandHistory = [];
   historyIndex = -1;
   lastInput;
   filesystem;
 
-  constructor(userInput, consoleText, consoleTitle, filesystem) {
+  constructor(userInput, terminalText, terminalTitle, filesystem) {
     this.userInputNode = userInput;
-    this.consoleBacklogNode = consoleText;
-    this.consoleTitle = consoleTitle;
+    this.terminalBacklogNode = terminalText;
+    this.terminalTitle = terminalTitle;
     this.filesystem = filesystem;
+    this.terminalBacklogNode.innerHTML =
+      "ELIOTT.NL [" +
+      version +
+      "]<br><br>" +
+      this.filesystem.currentadress +
+      ">";
+    this.terminalTitle.innerHTML = this.filesystem.currentadress;
   }
 
   Execute() {
@@ -33,7 +40,7 @@ class Console {
         break;
       }
       case "CLS": {
-        this.consoleBacklogNode.innerHTML = "";
+        this.terminalBacklogNode.innerHTML = "";
         break;
       }
       case "READ": {
@@ -54,7 +61,7 @@ class Console {
       }
       case "HELP":
       case "COMMANDS": {
-        this.Log("LIST, READ, CD, COMMANDS, CLS<br><br>");
+        this.Log("LIST<BR>READ<BR>CD<BR>COMMANDS<BR>CLS<br>MESH<br><br>");
         break;
       }
       case "DRIVE": {
@@ -67,11 +74,26 @@ class Console {
       }
       case "CD": {
         if (args.length == 1) {
-          this.filesystem.Move(args[0]);
+          let result = this.filesystem.Move(args[0]);
+          if (result == -1) {
+            this.Log("ERROR: NO FOLDER AT '" + args.join("/") + "'<br>");
+          }
           this.Log("<br>");
           break;
         }
         this.Log("ERROR: ARGUMENT COUNT INCORRECT<br><br>");
+        break;
+      }
+      case "MESH": {
+        try {
+          voronoi = !voronoi;
+        } catch (error) {
+          this.Log("Error: NO MESH FOUND<br><br>");
+        }
+        break;
+      }
+      case "Q": {
+        CloseTerminal();
         break;
       }
       default: {
@@ -83,18 +105,18 @@ class Console {
     }
 
     this.Log(this.filesystem.currentadress + ">");
-    this.consoleTitle.innerHTML = this.filesystem.currentadress;
+    this.terminalTitle.innerHTML = this.filesystem.currentadress;
+    let terminalBody = this.terminalBacklogNode.parentElement;
+    terminalBody.scrollTop = terminalBody.scrollHeight;
   }
 
   Read(adress) {
-    console.log([...this.filesystem.currentLocation, ...adress.split("/")]);
-
     let file1 = this.filesystem.GetFromAdress([
       ...this.filesystem.currentLocation,
       ...adress.split("/"),
     ]);
     if (file1 == null) {
-      console.log("null");
+      this.Log("ERROR: FILE '" + adress + "' NOT FOUND<br><br>");
       return;
     }
     this.Log("<br>################<br><br>");
@@ -108,10 +130,10 @@ class Console {
 
   Log(string, toupper = false) {
     if (toupper) {
-      this.consoleBacklogNode.innerHTML += string.toUpperCase();
+      this.terminalBacklogNode.innerHTML += string.toUpperCase();
       return;
     }
-    this.consoleBacklogNode.innerHTML += string;
+    this.terminalBacklogNode.innerHTML += string;
   }
 
   List(args) {
@@ -120,13 +142,13 @@ class Console {
   }
 }
 
-async function CreateConsole() {
+async function CreateTerminal() {
   let filesystem = await LoadFiles();
 
-  let CMD = new Console(
-    document.getElementById("consoleUserInput"),
-    document.getElementById("consoleText"),
-    document.getElementById("consoleheader"),
+  let CMD = new Terminal(
+    document.getElementById("terminalUserInput"),
+    document.getElementById("terminalText"),
+    document.getElementById("terminalheader"),
     filesystem
   );
 
@@ -137,6 +159,7 @@ async function CreateConsole() {
       CMD.Execute();
     }
   });
+  return CMD;
 }
 
-CreateConsole();
+CreateTerminal();

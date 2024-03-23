@@ -31,7 +31,7 @@ class FileData {
   }
 }
 
-class ConsoleFile extends FileData {
+class TerminalFile extends FileData {
   name;
   date;
   time;
@@ -47,7 +47,7 @@ class ConsoleFile extends FileData {
   }
 }
 
-class ConsoleFolder extends FileData {
+class TerminalFolder extends FileData {
   name;
   date;
   time;
@@ -103,7 +103,7 @@ class ConsoleFolder extends FileData {
   }
 }
 
-class ConsoleFileSystem {
+class TerminalFileSystem {
   drives = [];
 
   currentLocation;
@@ -116,7 +116,6 @@ class ConsoleFileSystem {
   GetFromAdress(adress) {
     let splitAdress = adress;
     splitAdress = this.RemoveParentLinks(splitAdress);
-    console.log(splitAdress);
     for (let i = 0; i < this.drives.length; i++) {
       if (this.drives[i].name == splitAdress[0]) {
         return this.drives[i].Find(splitAdress.slice(1));
@@ -142,10 +141,12 @@ class ConsoleFileSystem {
 
   Move(input) {
     let destination = input.split("/");
-    for (let i = 0; i < destination.length; i++) {
+    destination = destination.filter(String);
+
+    mainloop: for (let i = 0; i < destination.length; i++) {
       if (destination[i] == ".." && this.currentLocation.length != 1) {
         this.currentLocation = this.currentLocation.slice(0, -1);
-        continue;
+        continue mainloop;
       }
 
       let currentFolder = this.GetFromAdress(this.currentLocation);
@@ -156,10 +157,12 @@ class ConsoleFileSystem {
           destination[i].toUpperCase()
         ) {
           this.currentLocation.push(currentFolder.folders[j].name);
-          break;
+          continue mainloop;
         }
       }
+      return -1;
     }
+    return 0;
   }
 
   SwitchDrive(dest) {

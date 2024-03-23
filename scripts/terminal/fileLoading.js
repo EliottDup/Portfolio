@@ -1,13 +1,13 @@
 async function LoadFiles() {
   let fileSystem;
-  await fetch("scripts/console/files.json")
+  await fetch("scripts/terminal/files.json")
     .then((response) => response.json())
     .then((data) => {
       let drives = [];
       data.drives.forEach((drive) => {
         drives.push(MakeFolder(drive));
       });
-      fileSystem = new ConsoleFileSystem(drives);
+      fileSystem = new TerminalFileSystem(drives);
     });
   return fileSystem;
 }
@@ -27,7 +27,7 @@ function MakeFolder(data) {
     files.push(MakeFile(file));
   });
 
-  return new ConsoleFolder(name, date, time, files, folders);
+  return new TerminalFolder(name, date, time, files, folders);
 }
 
 function MakeFile(file) {
@@ -35,5 +35,5 @@ function MakeFile(file) {
   let date = file.date;
   let time = file.time;
   let data = file.data;
-  return new ConsoleFile(name, date, time, data);
+  return new TerminalFile(name, date, time, data);
 }

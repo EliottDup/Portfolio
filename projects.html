@@ -42,11 +42,30 @@
       </div>
     </div>
     <div id="footer">
-      <p onclick="voronoi = !voronoi" id="version"></p>
+      <p onclick="ToggleTerminal()" id="version"></p>
     </div>
     <script defer src="scripts/background.js"></script>
     <script defer src="scripts/highlighter.js"></script>
     <script defer src="scripts/projectLoader.js"></script>
-    <script defer src="scripts/versionUpdater.js"></script>
+    <script src="scripts/versionUpdater.js"></script>
+
+    <div class="terminalWriting" id="terminal">
+      <div class="terminalWriting" id="terminalheader">Root </div>
+      <div id="terminalClose" onclick="CloseTerminal()"><span>x</span></div>
+      <div class="terminalWriting" id="terminalBody">
+        <span class="terminalWriting" id="terminalText">Root></span>
+        <span
+          class="terminalWriting"
+          id="terminalUserInput"
+          contenteditable="true"
+          spellcheck="false"
+        ></span>
+      </div>
+    </div>
+    <script src="scripts/terminal/fileSystem.js"></script>
+    <script src="scripts/terminal/fileLoading.js"></script>
+    <script src="scripts/terminal/terminalDrag.js"></script>
+    <script src="scripts/terminal/terminal.js"></script>
+    <script src="scripts/terminal/terminalHandler.js"></script>
   </body>
 </html>

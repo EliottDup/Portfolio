@@ -6,18 +6,19 @@ class Terminal {
   historyIndex = -1;
   lastInput;
   filesystem;
+  startMessage;
 
   constructor(userInput, terminalText, terminalTitle, filesystem) {
     this.userInputNode = userInput;
     this.terminalBacklogNode = terminalText;
     this.terminalTitle = terminalTitle;
     this.filesystem = filesystem;
-    this.terminalBacklogNode.innerHTML =
+    this.startMessage =
       "ELIOTT.NL [" +
       version +
-      "]<br><br>" +
-      this.filesystem.currentadress +
-      ">";
+      ']<br><br>TYPE "COMMANDS" FOR A LIST OF COMMANDS<br><br>';
+    this.terminalBacklogNode.innerHTML =
+      this.startMessage + this.filesystem.currentadress + ">";
     this.terminalTitle.innerHTML = this.filesystem.currentadress;
   }
 
@@ -40,7 +41,7 @@ class Terminal {
         break;
       }
       case "CLS": {
-        this.terminalBacklogNode.innerHTML = "";
+        this.terminalBacklogNode.innerHTML = this.startMessage;
         break;
       }
       case "READ": {

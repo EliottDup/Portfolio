@@ -134,6 +134,7 @@ canvas {
 }
 
 #version {
+  cursor: pointer;
   width: fit-content;
   text-align: right;
 }

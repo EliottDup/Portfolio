@@ -20,6 +20,8 @@
 
 :root {
   --textColor: #d9d4cc;
+  --terminalHeight: 20vw;
+  --terminalWidth: 40vw;
 }
 
 body {
@@ -465,8 +467,8 @@ a {
   font-family: monospace;
   color: #9a9a9a;
   position: fixed;
-  width: 40vw;
-  height: 20vw;
+  width: var(--terminalWidth);
+  height: var(--terminalHeight);
   top: 25vh;
   left: 25vw;
 
@@ -563,8 +565,7 @@ br::selection {
 
 @keyframes TerminalOpen {
   0% {
-    display: none;
-    transform: translate(20vw, 0);
+    transform: translate(calc(var(--terminalWidth)/2), 0);
     height: 3ex;
     width: 0;
     
@@ -574,14 +575,13 @@ br::selection {
   60% {
     transform: translate(0, 0);
 
-    width: 40vw;
+    width: var(--terminalWidth);
     height: 3ex;
     min-width: 0vw;
     min-height: 0vh;
   }
   100% {
-    display: block;
-    height: 20vw;
+    height: var(--terminalHeight);
     min-width: 10vw;
     min-height: 10vh;
   }

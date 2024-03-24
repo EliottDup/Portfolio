@@ -23,12 +23,28 @@ terminalWindow.addEventListener("animationend", (event) => {
 });
 
 async function OpenTerminal() {
+  terminalWindow.style.setProperty(
+    "--terminalWidth",
+    terminalWindow.style.width
+  );
+  terminalWindow.style.setProperty(
+    "--terminalHeight",
+    terminalWindow.style.height
+  );
   terminalIsOpen = true;
   terminalWindow.style.display = "block";
   terminalWindow.classList.add("terminalOpenAnim");
 }
 
 async function CloseTerminal() {
+  terminalWindow.style.setProperty(
+    "--terminalWidth",
+    terminalWindow.style.width
+  );
+  terminalWindow.style.setProperty(
+    "--terminalHeight",
+    terminalWindow.style.height
+  );
   terminalIsOpen = false;
   terminalWindow.classList.add("terminalCloseAnim");
 }

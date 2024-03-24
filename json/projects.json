@@ -66,7 +66,7 @@
       "id": "portfolio",
       "title": "Portfolio Website",
       "status": 1,
-      "description": "I've had a lot of fun making this \\{portfolio\\} website and the parts it's made up of, like the \\{Bowyer-Watson\\} algorithm used in the background, the automatic project and art loaders. I know it could be done better, and might remake it in the future. <br><br> There are also easer eggs around, and I suggest looking at the \\{version number\\}",
+      "description": "I've had a lot of fun making this \\{portfolio\\} website and the parts it's made up of, like the \\{Bowyer-Watson\\} algorithm used in the background, the automatic project and art loaders. I know it could be done better, and might remake it in the future. <br><br> There are also easter eggs around, and I suggest looking at the \\{version number\\}",
       "buttons": [
         {
           "text": "<Source Code/>",

@@ -14,7 +14,7 @@ class Terminal {
     this.terminalTitle = terminalTitle;
     this.filesystem = filesystem;
     this.startMessage =
-      "ELIOTT.NL [" +
+      "<br>ELIOTT.NL [" +
       version +
       ']<br><br>TYPE "COMMANDS" FOR A LIST OF COMMANDS<br><br>';
     this.terminalBacklogNode.innerHTML =

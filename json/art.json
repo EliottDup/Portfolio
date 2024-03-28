@@ -51,6 +51,13 @@
       "description": "\\{Terrain generation\\} is another topic that really interests me, I made this animation in Blender to showcase simple terrain generation to students.",
       "filetype": "mp4",
       "starttime": 2
+    },
+    {
+      "date": "2024-03-28",
+      "id": "psxlamp",
+      "title": "Intrigued Lamp",
+      "description": "A short little render I made as training for \\{low-poly\\}/\\{PSX-style\\} modeling and rendering, which I hope to do more of soon. Also featuring a possible future project, the \\{dithering effect\\}.",
+      "filetype": "mp4"
     }
   ]
 }

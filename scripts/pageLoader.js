@@ -13,7 +13,11 @@ async function loadPage() {
   const urlParams = new URLSearchParams(window.location.search);
 
   const blogId = urlParams.get("blog");
-  const pageNumber = parseInt(urlParams.get("page"));
+  let pageNumber = parseInt(urlParams.get("page")) || 0;
+  if (pageNumber == 0) {
+    setUrlValue("page", 0);
+  }
+  console.log(pageNumber);
 
   let blogName;
   let pageName;
@@ -59,8 +63,33 @@ async function loadPage() {
       document.getElementById("blogContent").innerHTML = htmlOutput;
       document.getElementById("blogTitle").innerHTML = pageName;
 
+      document.getElementById("blog-buttons").innerHTML = "";
+      for (let i = 0; i < blogJson.buttons.length; i++) {
+        const button = blogJson.buttons[i];
+
+        document
+          .getElementById("blog-buttons")
+          .appendChild(CreateButton(button.text, button.destination));
+      }
+      for (let i = 0; i < blogJson.pages[pageNumber].buttons.length; i++) {
+        const button = blogJson.pages[pageNumber].buttons[i];
+        document
+          .getElementById("blog-buttons")
+          .appendChild(CreateButton(button.text, button.destination));
+      }
+
       runHighlighter();
     });
+}
+
+function CreateButton(text, destination) {
+  const button = document.createElement("a");
+  button.target = "_blank";
+  button.classList.add("blog-page-link");
+  button.href = destination;
+  button.textContent = text;
+
+  return button;
 }
 
 function setUrlValue(key, value) {

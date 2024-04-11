@@ -49,7 +49,6 @@ async function loadPage() {
 
       pageCount = blogJson.pages.length;
     });
-  // console.log(Object.entries(blogJson));
 
   await fetch("blog/" + blogId + "/" + pageId + ".md")
     .then((response) => {

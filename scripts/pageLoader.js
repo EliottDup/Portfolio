@@ -60,6 +60,8 @@ async function loadPage() {
 
       var htmlOutput = converter.makeHtml(data);
 
+      document.getElementById("dateDisplay").innerHTML =
+        blogJson.pages[pageNumber].date;
       document.getElementById("blogContent").innerHTML = htmlOutput;
       document.getElementById("blogTitle").innerHTML = pageName;
 

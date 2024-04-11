@@ -86,6 +86,10 @@ canvas {
   text-decoration: underline blueviolet;
 }
 
+#blogContainer > .title {
+  margin-bottom: 3vh;
+}
+
 #contact {
   margin-top: 10vh;
   width: 100vw;
@@ -415,9 +419,14 @@ a {
   cursor: pointer;
   min-width: 4vw;
 }
+
 .off-blog-page-link {
   filter: grayscale();
   cursor: default;
+}
+
+#dateDisplay {
+  margin-top: 0;
 }
 
 #backbutton {

@@ -104,6 +104,7 @@ canvas {
   justify-content: center;
   column-gap: 4vw;
   row-gap: 2vh;
+  text-wrap: nowrap;
 }
 
 .contactlink {
@@ -111,7 +112,7 @@ canvas {
   justify-content: center;
   align-items: center;
   display: flex;
-  width: 3vw;
+  width: 2vw;
   text-decoration: inherit;
   color: inherit;
   font-size: smaller;
@@ -392,6 +393,32 @@ a {
   background-color: #000000;
 }
 
+.blog-page-buttons{
+  margin-top: 5%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:space-between;
+}
+
+.blog-page-link {
+  text-align: center;
+
+  display: block;
+  padding: 2vh 2vw 2vh 2vw;
+  font-size: larger;
+  text-decoration: inherit;
+  color: blueviolet;
+  border-radius: 10px;
+  background-color: #000000;
+  border: none;
+  cursor: pointer;
+}
+.off-blog-page-link {
+  filter: grayscale();
+  cursor: default;
+}
+
 #backbutton {
   display: flex;
   position: fixed;
@@ -453,6 +480,10 @@ a {
   to {
     transform: scale(1) rotate3D(1, 1, 1, 360deg);
   }
+}
+
+#blogContainer {
+  min-height: 60vh;
 }
 
 #terminalHolder {
@@ -550,7 +581,6 @@ br::selection {
   text-align: center;
   cursor: pointer;
 }
-
 
 .terminalOpenAnim{
   animation-name: TerminalOpen;

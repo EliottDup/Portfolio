@@ -5,18 +5,21 @@
     <link rel="stylesheet" href="style/style.css" />
     <link rel="icon" type="image/x-icon" href="media/icons/favicon.ico" />
   </head>
-  <body onload="loadProjects(true);runHighlighter();">
+  <body onload="loadPage()">
     <canvas id="canvas">voronoi</canvas>
 
     <div id="backbutton">
       <a href="../"><< HOME</a>
     </div>
 
-    <div id="projects" class="article">
-      <h1 class="title"><span class="highlight">Projects</span></h1>
-      <!-- <div class="showoff featured" id="favorite-project"></div> -->
-      <div class="showoff" id="projects-showoff"></div>
-    </div>
+    <div id="blogContainer" class="article">
+        <H1 class="title"><span class="highlight" id="blogTitle">Helo</span></H1>
+        <div class="paragraph" id="blogContent"></div>
+        <div class="blog-page-buttons">
+          <button class="blog-page-link off-blog-page-link" id="prevPage" href="">< Previous</button>
+          <button class="blog-page-link off-blog-page-link" id="nextPage" href="">&nbsp; &nbsp; Next &nbsp; &nbsp; ></button>
+        </div>  
+      </div>
 
     <div id="contact">
       <div>Wanna get in touch? You can find me here:</div>
@@ -44,10 +47,13 @@
     <div id="footer">
       <p onclick="ToggleTerminal()" id="version"></p>
     </div>
+
+    <script src="https://cdn.rawgit.com/showdownjs/showdown/2.1.0/dist/showdown.min.js"></script>
+
     <script defer src="scripts/background.js"></script>
     <script defer src="scripts/highlighter.js"></script>
-    <script defer src="scripts/projectLoader.js"></script>
     <script src="scripts/versionUpdater.js"></script>
+    <script src="scripts/pageLoader.js"></script>
 
     <div class="terminalWriting" id="terminal">
       <div class="terminalWriting" id="terminalheader">Root </div>

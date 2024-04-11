@@ -1,0 +1,22 @@
+{
+    "blogs":{
+        "looper":{
+            "name": "Looper Inc.",
+            "pages":[
+                {
+                    "name": "Intro",
+                    "id": "intro",
+                    "date": "09-04-2024",
+                    "buttons": []
+                },
+                {
+                    "name": "page 2",
+                    "id": "page2",
+                    "date": "09-04-2024",
+                    "buttons": []
+                }
+            ],
+            "buttons": []
+        }
+    }
+}

@@ -1,6 +1,5 @@
 function runHighlighter() {
   const paragraphs = document.getElementsByClassName("paragraph");
-  console.log("running highlighter");
 
   if (paragraphs) {
     for (let i = 0; i < paragraphs.length; i++) {

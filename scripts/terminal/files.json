@@ -14,7 +14,7 @@
                             "name": "project_SFS",
                             "date": "2024-02-18",
                             "time": "XX:XX",
-                            "folder": [],
+                            "folders": [],
                             "files": [
                                 {
                                     "name": "SFS.info",
@@ -22,6 +22,28 @@
                                     "time": "17:30",
                                     "type": "text",
                                     "data": "This project is actually a quite sizeable one, where the idea is to make a VR spaceship flight simulator, I have not made much of a start yet, but the idea at the moment is simply to get a spceship into space and fly it around in VR. But I am very new to VR gamedev and expect this to take a while, partly because I have other things that I focus more onto at the moment."
+                                },
+                                {
+                                    "name": "1.log",
+                                    "date": "2024-09-15",
+                                    "time": "16:35",
+                                    "type": "text",
+                                    "data": "While this idea is still a goal of mine, I am unsure wether I will actually work on it a lot more, maybe I will, maybe I won't not sure just yet <br> <br>-Eliott"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "other",
+                            "date": "2024-09-XX",
+                            "time": "XX:XX",
+                            "folders": [],
+                            "files":[
+                                {
+                                    "name": "WorldBuilding.txt",
+                                    "date": "2024-09-15",
+                                    "time": "16:42",
+                                    "type": "text",
+                                    "data": "Lately, I've started more and more wanting to do worldbuilding for Looper Inc., however I never manage to actually get started, but I do have some ideas."
                                 }
                             ]
                         }

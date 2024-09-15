@@ -86,6 +86,10 @@ canvas {
   text-decoration: underline blueviolet;
 }
 
+#blogContainer > .title {
+  margin-bottom: 3vh;
+}
+
 #contact {
   margin-top: 10vh;
   width: 100vw;
@@ -393,12 +397,12 @@ a {
   background-color: #000000;
 }
 
-.blog-page-buttons{
+.blog-page-buttons {
   margin-top: 5%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content:space-between;
+  justify-content: space-between;
 }
 
 .blog-page-link {
@@ -413,10 +417,16 @@ a {
   background-color: #000000;
   border: none;
   cursor: pointer;
+  min-width: 4vw;
 }
+
 .off-blog-page-link {
   filter: grayscale();
   cursor: default;
+}
+
+#dateDisplay {
+  margin-top: 0;
 }
 
 #backbutton {
@@ -516,7 +526,7 @@ a {
 
 #terminalheader {
   z-index: 1;
-  position:relative;
+  position: relative;
   top: 0;
   left: 0;
   background-color: #3a3a3a;
@@ -544,7 +554,6 @@ a {
   align-items: end;
 }
 
-
 #terminalUserInput {
   outline: none;
   min-width: 20px;
@@ -568,12 +577,12 @@ br::selection {
   height: 200vh;
 }
 
-#terminalClose{
+#terminalClose {
   z-index: 1;
   background-color: #ff0000d9;
   color: #000;
   border-radius: 100%;
-  height:2.5ex;
+  height: 2.5ex;
   width: 2.5ex;
   position: absolute;
   top: 0.25ex;
@@ -582,12 +591,12 @@ br::selection {
   cursor: pointer;
 }
 
-.terminalOpenAnim{
+.terminalOpenAnim {
   animation-name: TerminalOpen;
   animation-duration: 1s;
 }
 
-.terminalCloseAnim{
+.terminalCloseAnim {
   animation-direction: reverse;
   animation-name: TerminalOpen;
   animation-duration: 1s;
@@ -595,10 +604,10 @@ br::selection {
 
 @keyframes TerminalOpen {
   0% {
-    transform: translate(calc(var(--terminalWidth)/2), 0);
+    transform: translate(calc(var(--terminalWidth) / 2), 0);
     height: 3ex;
     width: 0;
-    
+
     min-width: 0vw;
     min-height: 0vh;
   }

@@ -7,46 +7,65 @@ converter = new showdown.Converter({
 const prevPageBtn = document.getElementById("prevPage");
 const nextPageBtn = document.getElementById("nextPage");
 
-let pageCount = 0;
+let nextPageId;
+let prevPageId;
 
 async function loadPage() {
+  prevPageId = "none";
+  nextPageId = "none";
+
   const urlParams = new URLSearchParams(window.location.search);
 
   const blogId = urlParams.get("blog");
-  const pageNumber = parseInt(urlParams.get("page"));
-
-  let blogName;
-  let pageName;
-  let pageId;
+  let pageId = urlParams.get("page") || 0;
+  if (pageId == 0) {
+    setUrlValue("page", 0);
+  }
 
   let blogJson;
+  let blogName;
 
-  await fetch("blog/blogs.json")
+  let page;
+  let pageNum;
+  let pageCount = 0;
+
+  await fetch("json/blogs.json")
     .then((response) => response.json())
     .then((data) => {
       blogJson = data.blogs[blogId];
       blogName = blogJson.name;
-      pageName = blogJson.pages[pageNumber].name;
-      pageId = blogJson.pages[pageNumber].id;
+      page = blogJson.pages[pageId];
+
+      pageNum = page.pageNum;
+      let pages = Object.entries(blogJson.pages);
+      for (let i = 0; i < pages.length; i++) {
+        if (pages[i][1].pageNum == pageNum + 1) {
+          nextPageId = pages[i][0];
+        }
+        if (pages[i][1].pageNum == pageNum - 1) {
+          prevPageId = pages[i][0];
+        }
+      }
+
       pageCount = blogJson.pages.length;
     });
 
   await fetch("blog/" + blogId + "/" + pageId + ".md")
     .then((response) => {
       if (!response.ok) {
-        console.log(`Error: Couldn\'t find blog "${blogId}" page "${page}"`);
-        return `Error: Couldn\'t find blog: **${blogId}**, or page: **${page}**`;
+        console.log(`Error: Couldn\'t find blog "${blogId}" page "${pageId}"`);
+        return `Error: Couldn\'t find blog: **${blogId}**, or page: **${pageId}**`;
       }
       return response.text();
     })
     .then((data) => {
-      if (pageNumber != 0) {
+      if (prevPageId != "none") {
         prevPageBtn.classList.remove("off-blog-page-link");
       } else {
         prevPageBtn.classList.add("off-blog-page-link");
       }
 
-      if (pageNumber < blogJson.pages.length - 1) {
+      if (nextPageId != "none") {
         nextPageBtn.classList.remove("off-blog-page-link");
       } else {
         nextPageBtn.classList.add("off-blog-page-link");
@@ -56,11 +75,37 @@ async function loadPage() {
 
       var htmlOutput = converter.makeHtml(data);
 
+      document.getElementById("dateDisplay").innerHTML = page.date;
       document.getElementById("blogContent").innerHTML = htmlOutput;
-      document.getElementById("blogTitle").innerHTML = pageName;
+      document.getElementById("blogTitle").innerHTML = page.name;
+
+      document.getElementById("blog-buttons").innerHTML = "";
+      for (let i = 0; i < blogJson.buttons.length; i++) {
+        const button = blogJson.buttons[i];
+
+        document
+          .getElementById("blog-buttons")
+          .appendChild(CreateButton(button.text, button.destination));
+      }
+      for (let i = 0; i < blogJson.pages[pageId].buttons.length; i++) {
+        const button = blogJson.pages[pageId].buttons[i];
+        document
+          .getElementById("blog-buttons")
+          .appendChild(CreateButton(button.text, button.destination));
+      }
 
       runHighlighter();
     });
+}
+
+function CreateButton(text, destination) {
+  const button = document.createElement("a");
+  button.target = "_blank";
+  button.classList.add("blog-page-link");
+  button.href = destination;
+  button.textContent = text;
+
+  return button;
 }
 
 function setUrlValue(key, value) {
@@ -76,19 +121,11 @@ function setUrlValue(key, value) {
 }
 
 function nextPage() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const pageNumber = parseInt(urlParams.get("page"));
-  if (pageNumber + 1 < pageCount) {
-    setUrlValue("page", pageNumber + 1);
-  }
+  setUrlValue("page", nextPageId);
 }
 
 function prevPage() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const pageNumber = parseInt(urlParams.get("page"));
-  if (pageNumber - 1 >= 0) {
-    setUrlValue("page", pageNumber - 1);
-  }
+  setUrlValue("page", prevPageId);
 }
 
 nextPageBtn.addEventListener("click", function () {

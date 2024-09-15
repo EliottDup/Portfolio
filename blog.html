@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Projects | Eliott Duparc</title>
+    <title>Blog | Eliott Duparc</title>
     <link rel="stylesheet" href="style/style.css" />
     <link rel="icon" type="image/x-icon" href="media/icons/favicon.ico" />
   </head>
@@ -13,13 +13,19 @@
     </div>
 
     <div id="blogContainer" class="article">
-        <H1 class="title"><span class="highlight" id="blogTitle">Helo</span></H1>
-        <div class="paragraph" id="blogContent"></div>
-        <div class="blog-page-buttons">
-          <button class="blog-page-link off-blog-page-link" id="prevPage" href="">< Previous</button>
-          <button class="blog-page-link off-blog-page-link" id="nextPage" href="">&nbsp; &nbsp; Next &nbsp; &nbsp; ></button>
-        </div>  
+      <h1 class="title"><span class="highlight" id="blogTitle"></span></h1>
+      <p class="paragraph" id="dateDisplay">07-06-2006</p>
+      <div class="paragraph" id="blogContent"></div>
+      <div class="page-buttons" id="blog-buttons"></div>
+      <div class="blog-page-buttons">
+        <button class="blog-page-link off-blog-page-link" id="prevPage" href="">
+          < Previous
+        </button>
+        <button class="blog-page-link off-blog-page-link" id="nextPage" href="">
+          &nbsp; &nbsp; Next &nbsp; &nbsp; >
+        </button>
       </div>
+    </div>
 
     <div id="contact">
       <div>Wanna get in touch? You can find me here:</div>
@@ -56,7 +62,7 @@
     <script src="scripts/pageLoader.js"></script>
 
     <div class="terminalWriting" id="terminal">
-      <div class="terminalWriting" id="terminalheader">Root </div>
+      <div class="terminalWriting" id="terminalheader">Root</div>
       <div id="terminalClose" onclick="CloseTerminal()"><span>x</span></div>
       <div class="terminalWriting" id="terminalBody">
         <span class="terminalWriting" id="terminalText">Root></span>
